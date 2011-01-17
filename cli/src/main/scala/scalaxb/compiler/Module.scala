@@ -343,7 +343,9 @@ trait Module extends Logger {
   }
     
   def buildContext: Context
-  
+
+  def processSchema(schema: Schema, context: Context, config: Config): Unit
+
   def processContext(context: Context, config: Config): Unit
 
   def packageName(namespace: Option[String], context: Context): Option[String]
