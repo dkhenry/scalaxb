@@ -4,321 +4,134 @@ package xmlschema
 /**
 usage:
 import scalaxb._
-import Scalaxb._
 import xmlschema._
-import DefaultXXMLProtocol._
 
 val obj = fromXML[Foo](node)
 val document = toXML[Foo](obj, "foo", defaultScope)
 **/
+object `package` extends XXMLProtocol { }
+
 trait XXMLProtocol extends scalaxb.XMLStandardTypes {
-  implicit lazy val XmlschemaXOpenAttrsableFormat: scalaxb.XMLFormat[xmlschema.XOpenAttrsable] = buildXmlschemaXOpenAttrsableFormat
-  def buildXmlschemaXOpenAttrsableFormat: scalaxb.XMLFormat[xmlschema.XOpenAttrsable]
-
-  implicit lazy val XmlschemaXOpenAttrsFormat: scalaxb.XMLFormat[xmlschema.XOpenAttrs] = buildXmlschemaXOpenAttrsFormat
-  def buildXmlschemaXOpenAttrsFormat: scalaxb.XMLFormat[xmlschema.XOpenAttrs]
-
-  implicit lazy val XmlschemaXAnnotatedableFormat: scalaxb.XMLFormat[xmlschema.XAnnotatedable] = buildXmlschemaXAnnotatedableFormat
-  def buildXmlschemaXAnnotatedableFormat: scalaxb.XMLFormat[xmlschema.XAnnotatedable]
-
-  implicit lazy val XmlschemaXAnnotatedFormat: scalaxb.XMLFormat[xmlschema.XAnnotated] = buildXmlschemaXAnnotatedFormat
-  def buildXmlschemaXAnnotatedFormat: scalaxb.XMLFormat[xmlschema.XAnnotated]
-
-  implicit lazy val XmlschemaXFormChoiceFormat: scalaxb.XMLFormat[xmlschema.XFormChoice] = buildXmlschemaXFormChoiceFormat
-  def buildXmlschemaXFormChoiceFormat: scalaxb.XMLFormat[xmlschema.XFormChoice]
-
-  implicit lazy val XmlschemaXReducedDerivationControlFormat: scalaxb.XMLFormat[xmlschema.XReducedDerivationControl] = buildXmlschemaXReducedDerivationControlFormat
-  def buildXmlschemaXReducedDerivationControlFormat: scalaxb.XMLFormat[xmlschema.XReducedDerivationControl]
-
-  implicit lazy val XmlschemaXTypeDerivationControlFormat: scalaxb.XMLFormat[xmlschema.XTypeDerivationControl] = buildXmlschemaXTypeDerivationControlFormat
-  def buildXmlschemaXTypeDerivationControlFormat: scalaxb.XMLFormat[xmlschema.XTypeDerivationControl]
-
-  implicit lazy val XmlschemaXSchemaFormat: scalaxb.XMLFormat[xmlschema.XSchema] = buildXmlschemaXSchemaFormat
-  def buildXmlschemaXSchemaFormat: scalaxb.XMLFormat[xmlschema.XSchema]
-
-  implicit lazy val XmlschemaXSchemaSequence1Format: scalaxb.XMLFormat[xmlschema.XSchemaSequence1] = buildXmlschemaXSchemaSequence1Format
-  def buildXmlschemaXSchemaSequence1Format: scalaxb.XMLFormat[xmlschema.XSchemaSequence1]
-
-  implicit lazy val XmlschemaXUseFormat: scalaxb.XMLFormat[xmlschema.XUse] = buildXmlschemaXUseFormat
-  def buildXmlschemaXUseFormat: scalaxb.XMLFormat[xmlschema.XUse]
-
-  implicit lazy val XmlschemaXAttributableFormat: scalaxb.XMLFormat[xmlschema.XAttributable] = buildXmlschemaXAttributableFormat
-  def buildXmlschemaXAttributableFormat: scalaxb.XMLFormat[xmlschema.XAttributable]
-
-  implicit lazy val XmlschemaXAttributeFormat: scalaxb.XMLFormat[xmlschema.XAttribute] = buildXmlschemaXAttributeFormat
-  def buildXmlschemaXAttributeFormat: scalaxb.XMLFormat[xmlschema.XAttribute]
-
-  implicit lazy val XmlschemaXTopLevelAttributeFormat: scalaxb.XMLFormat[xmlschema.XTopLevelAttribute] = buildXmlschemaXTopLevelAttributeFormat
-  def buildXmlschemaXTopLevelAttributeFormat: scalaxb.XMLFormat[xmlschema.XTopLevelAttribute]
-
-  implicit lazy val XmlschemaXComplexTypeFormat: scalaxb.XMLFormat[xmlschema.XComplexType] = buildXmlschemaXComplexTypeFormat
-  def buildXmlschemaXComplexTypeFormat: scalaxb.XMLFormat[xmlschema.XComplexType]
-
-  implicit lazy val XmlschemaXTopLevelComplexTypeFormat: scalaxb.XMLFormat[xmlschema.XTopLevelComplexType] = buildXmlschemaXTopLevelComplexTypeFormat
-  def buildXmlschemaXTopLevelComplexTypeFormat: scalaxb.XMLFormat[xmlschema.XTopLevelComplexType]
-
-  implicit lazy val XmlschemaXLocalComplexTypeFormat: scalaxb.XMLFormat[xmlschema.XLocalComplexType] = buildXmlschemaXLocalComplexTypeFormat
-  def buildXmlschemaXLocalComplexTypeFormat: scalaxb.XMLFormat[xmlschema.XLocalComplexType]
-
-  implicit lazy val XmlschemaXRestrictionTypableFormat: scalaxb.XMLFormat[xmlschema.XRestrictionTypable] = buildXmlschemaXRestrictionTypableFormat
-  def buildXmlschemaXRestrictionTypableFormat: scalaxb.XMLFormat[xmlschema.XRestrictionTypable]
-
-  implicit lazy val XmlschemaXRestrictionTypeFormat: scalaxb.XMLFormat[xmlschema.XRestrictionType] = buildXmlschemaXRestrictionTypeFormat
-  def buildXmlschemaXRestrictionTypeFormat: scalaxb.XMLFormat[xmlschema.XRestrictionType]
-
-  implicit lazy val XmlschemaXComplexRestrictionTypeFormat: scalaxb.XMLFormat[xmlschema.XComplexRestrictionType] = buildXmlschemaXComplexRestrictionTypeFormat
-  def buildXmlschemaXComplexRestrictionTypeFormat: scalaxb.XMLFormat[xmlschema.XComplexRestrictionType]
-
-  implicit lazy val XmlschemaXExtensionTypableFormat: scalaxb.XMLFormat[xmlschema.XExtensionTypable] = buildXmlschemaXExtensionTypableFormat
-  def buildXmlschemaXExtensionTypableFormat: scalaxb.XMLFormat[xmlschema.XExtensionTypable]
-
-  implicit lazy val XmlschemaXExtensionTypeFormat: scalaxb.XMLFormat[xmlschema.XExtensionType] = buildXmlschemaXExtensionTypeFormat
-  def buildXmlschemaXExtensionTypeFormat: scalaxb.XMLFormat[xmlschema.XExtensionType]
-
-  implicit lazy val XmlschemaXComplexContentFormat: scalaxb.XMLFormat[xmlschema.XComplexContent] = buildXmlschemaXComplexContentFormat
-  def buildXmlschemaXComplexContentFormat: scalaxb.XMLFormat[xmlschema.XComplexContent]
-
-  implicit lazy val XmlschemaXSimpleRestrictionTypeFormat: scalaxb.XMLFormat[xmlschema.XSimpleRestrictionType] = buildXmlschemaXSimpleRestrictionTypeFormat
-  def buildXmlschemaXSimpleRestrictionTypeFormat: scalaxb.XMLFormat[xmlschema.XSimpleRestrictionType]
-
-  implicit lazy val XmlschemaXSimpleExtensionTypeFormat: scalaxb.XMLFormat[xmlschema.XSimpleExtensionType] = buildXmlschemaXSimpleExtensionTypeFormat
-  def buildXmlschemaXSimpleExtensionTypeFormat: scalaxb.XMLFormat[xmlschema.XSimpleExtensionType]
-
-  implicit lazy val XmlschemaXSimpleContentFormat: scalaxb.XMLFormat[xmlschema.XSimpleContent] = buildXmlschemaXSimpleContentFormat
-  def buildXmlschemaXSimpleContentFormat: scalaxb.XMLFormat[xmlschema.XSimpleContent]
-
-  implicit lazy val XmlschemaXElementFormat: scalaxb.XMLFormat[xmlschema.XElement] = buildXmlschemaXElementFormat
-  def buildXmlschemaXElementFormat: scalaxb.XMLFormat[xmlschema.XElement]
-
-  implicit lazy val XmlschemaXTopLevelElementFormat: scalaxb.XMLFormat[xmlschema.XTopLevelElement] = buildXmlschemaXTopLevelElementFormat
-  def buildXmlschemaXTopLevelElementFormat: scalaxb.XMLFormat[xmlschema.XTopLevelElement]
-
-  implicit lazy val XmlschemaXLocalElementableFormat: scalaxb.XMLFormat[xmlschema.XLocalElementable] = buildXmlschemaXLocalElementableFormat
-  def buildXmlschemaXLocalElementableFormat: scalaxb.XMLFormat[xmlschema.XLocalElementable]
-
-  implicit lazy val XmlschemaXLocalElementFormat: scalaxb.XMLFormat[xmlschema.XLocalElement] = buildXmlschemaXLocalElementFormat
-  def buildXmlschemaXLocalElementFormat: scalaxb.XMLFormat[xmlschema.XLocalElement]
-
-  implicit lazy val XmlschemaXGroupFormat: scalaxb.XMLFormat[xmlschema.XGroup] = buildXmlschemaXGroupFormat
-  def buildXmlschemaXGroupFormat: scalaxb.XMLFormat[xmlschema.XGroup]
-
-  implicit lazy val XmlschemaXRealGroupableFormat: scalaxb.XMLFormat[xmlschema.XRealGroupable] = buildXmlschemaXRealGroupableFormat
-  def buildXmlschemaXRealGroupableFormat: scalaxb.XMLFormat[xmlschema.XRealGroupable]
-
-  implicit lazy val XmlschemaXRealGroupFormat: scalaxb.XMLFormat[xmlschema.XRealGroup] = buildXmlschemaXRealGroupFormat
-  def buildXmlschemaXRealGroupFormat: scalaxb.XMLFormat[xmlschema.XRealGroup]
-
-  implicit lazy val XmlschemaXAllFormat: scalaxb.XMLFormat[xmlschema.XAll] = buildXmlschemaXAllFormat
-  def buildXmlschemaXAllFormat: scalaxb.XMLFormat[xmlschema.XAll]
-
-  implicit lazy val XmlschemaXNamedGroupFormat: scalaxb.XMLFormat[xmlschema.XNamedGroup] = buildXmlschemaXNamedGroupFormat
-  def buildXmlschemaXNamedGroupFormat: scalaxb.XMLFormat[xmlschema.XNamedGroup]
-
-  implicit lazy val XmlschemaXGroupRefFormat: scalaxb.XMLFormat[xmlschema.XGroupRef] = buildXmlschemaXGroupRefFormat
-  def buildXmlschemaXGroupRefFormat: scalaxb.XMLFormat[xmlschema.XGroupRef]
-
-  implicit lazy val XmlschemaXExplicitGroupableFormat: scalaxb.XMLFormat[xmlschema.XExplicitGroupable] = buildXmlschemaXExplicitGroupableFormat
-  def buildXmlschemaXExplicitGroupableFormat: scalaxb.XMLFormat[xmlschema.XExplicitGroupable]
-
-  implicit lazy val XmlschemaXExplicitGroupFormat: scalaxb.XMLFormat[xmlschema.XExplicitGroup] = buildXmlschemaXExplicitGroupFormat
-  def buildXmlschemaXExplicitGroupFormat: scalaxb.XMLFormat[xmlschema.XExplicitGroup]
-
-  implicit lazy val XmlschemaXSimpleExplicitGroupFormat: scalaxb.XMLFormat[xmlschema.XSimpleExplicitGroup] = buildXmlschemaXSimpleExplicitGroupFormat
-  def buildXmlschemaXSimpleExplicitGroupFormat: scalaxb.XMLFormat[xmlschema.XSimpleExplicitGroup]
-
-  implicit lazy val XmlschemaXMinOccursFormat: scalaxb.XMLFormat[xmlschema.XMinOccurs] = buildXmlschemaXMinOccursFormat
-  def buildXmlschemaXMinOccursFormat: scalaxb.XMLFormat[xmlschema.XMinOccurs]
-
-  implicit lazy val XmlschemaXMaxOccursFormat: scalaxb.XMLFormat[xmlschema.XMaxOccurs] = buildXmlschemaXMaxOccursFormat
-  def buildXmlschemaXMaxOccursFormat: scalaxb.XMLFormat[xmlschema.XMaxOccurs]
-
-  implicit lazy val XmlschemaXNarrowMaxMinFormat: scalaxb.XMLFormat[xmlschema.XNarrowMaxMin] = buildXmlschemaXNarrowMaxMinFormat
-  def buildXmlschemaXNarrowMaxMinFormat: scalaxb.XMLFormat[xmlschema.XNarrowMaxMin]
-
-  implicit lazy val XmlschemaXMinOccursTypeFormat: scalaxb.XMLFormat[xmlschema.XMinOccursType] = buildXmlschemaXMinOccursTypeFormat
-  def buildXmlschemaXMinOccursTypeFormat: scalaxb.XMLFormat[xmlschema.XMinOccursType]
-
-  implicit lazy val XmlschemaXMaxOccursTypeFormat: scalaxb.XMLFormat[xmlschema.XMaxOccursType] = buildXmlschemaXMaxOccursTypeFormat
-  def buildXmlschemaXMaxOccursTypeFormat: scalaxb.XMLFormat[xmlschema.XMaxOccursType]
-
-  implicit lazy val XmlschemaXAllableFormat: scalaxb.XMLFormat[xmlschema.XAllable] = buildXmlschemaXAllableFormat
-  def buildXmlschemaXAllableFormat: scalaxb.XMLFormat[xmlschema.XAllable]
-
-  implicit lazy val XmlschemaXAllTypeFormat: scalaxb.XMLFormat[xmlschema.XAllType] = buildXmlschemaXAllTypeFormat
-  def buildXmlschemaXAllTypeFormat: scalaxb.XMLFormat[xmlschema.XAllType]
-
-  implicit lazy val XmlschemaXProcessContentsFormat: scalaxb.XMLFormat[xmlschema.XProcessContents] = buildXmlschemaXProcessContentsFormat
-  def buildXmlschemaXProcessContentsFormat: scalaxb.XMLFormat[xmlschema.XProcessContents]
-
-  implicit lazy val XmlschemaXWildcardableFormat: scalaxb.XMLFormat[xmlschema.XWildcardable] = buildXmlschemaXWildcardableFormat
-  def buildXmlschemaXWildcardableFormat: scalaxb.XMLFormat[xmlschema.XWildcardable]
-
-  implicit lazy val XmlschemaXWildcardFormat: scalaxb.XMLFormat[xmlschema.XWildcard] = buildXmlschemaXWildcardFormat
-  def buildXmlschemaXWildcardFormat: scalaxb.XMLFormat[xmlschema.XWildcard]
-
-  implicit lazy val XmlschemaXAnyFormat: scalaxb.XMLFormat[xmlschema.XAny] = buildXmlschemaXAnyFormat
-  def buildXmlschemaXAnyFormat: scalaxb.XMLFormat[xmlschema.XAny]
-
-  implicit lazy val XmlschemaXAttributeGroupFormat: scalaxb.XMLFormat[xmlschema.XAttributeGroup] = buildXmlschemaXAttributeGroupFormat
-  def buildXmlschemaXAttributeGroupFormat: scalaxb.XMLFormat[xmlschema.XAttributeGroup]
-
-  implicit lazy val XmlschemaXNamedAttributeGroupFormat: scalaxb.XMLFormat[xmlschema.XNamedAttributeGroup] = buildXmlschemaXNamedAttributeGroupFormat
-  def buildXmlschemaXNamedAttributeGroupFormat: scalaxb.XMLFormat[xmlschema.XNamedAttributeGroup]
-
-  implicit lazy val XmlschemaXAttributeGroupRefFormat: scalaxb.XMLFormat[xmlschema.XAttributeGroupRef] = buildXmlschemaXAttributeGroupRefFormat
-  def buildXmlschemaXAttributeGroupRefFormat: scalaxb.XMLFormat[xmlschema.XAttributeGroupRef]
-
-  implicit lazy val XmlschemaXIncludeFormat: scalaxb.XMLFormat[xmlschema.XInclude] = buildXmlschemaXIncludeFormat
-  def buildXmlschemaXIncludeFormat: scalaxb.XMLFormat[xmlschema.XInclude]
-
-  implicit lazy val XmlschemaXRedefineFormat: scalaxb.XMLFormat[xmlschema.XRedefine] = buildXmlschemaXRedefineFormat
-  def buildXmlschemaXRedefineFormat: scalaxb.XMLFormat[xmlschema.XRedefine]
-
-  implicit lazy val XmlschemaXImportFormat: scalaxb.XMLFormat[xmlschema.XImport] = buildXmlschemaXImportFormat
-  def buildXmlschemaXImportFormat: scalaxb.XMLFormat[xmlschema.XImport]
-
-  implicit lazy val XmlschemaXSelectorFormat: scalaxb.XMLFormat[xmlschema.XSelector] = buildXmlschemaXSelectorFormat
-  def buildXmlschemaXSelectorFormat: scalaxb.XMLFormat[xmlschema.XSelector]
-
-  implicit lazy val XmlschemaXFieldFormat: scalaxb.XMLFormat[xmlschema.XField] = buildXmlschemaXFieldFormat
-  def buildXmlschemaXFieldFormat: scalaxb.XMLFormat[xmlschema.XField]
-
-  implicit lazy val XmlschemaXKeybasableFormat: scalaxb.XMLFormat[xmlschema.XKeybasable] = buildXmlschemaXKeybasableFormat
-  def buildXmlschemaXKeybasableFormat: scalaxb.XMLFormat[xmlschema.XKeybasable]
-
-  implicit lazy val XmlschemaXKeybaseFormat: scalaxb.XMLFormat[xmlschema.XKeybase] = buildXmlschemaXKeybaseFormat
-  def buildXmlschemaXKeybaseFormat: scalaxb.XMLFormat[xmlschema.XKeybase]
-
-  implicit lazy val XmlschemaXKeyrefFormat: scalaxb.XMLFormat[xmlschema.XKeyref] = buildXmlschemaXKeyrefFormat
-  def buildXmlschemaXKeyrefFormat: scalaxb.XMLFormat[xmlschema.XKeyref]
-
-  implicit lazy val XmlschemaXNotationFormat: scalaxb.XMLFormat[xmlschema.XNotation] = buildXmlschemaXNotationFormat
-  def buildXmlschemaXNotationFormat: scalaxb.XMLFormat[xmlschema.XNotation]
-
-  implicit lazy val XmlschemaXAppinfoFormat: scalaxb.XMLFormat[xmlschema.XAppinfo] = buildXmlschemaXAppinfoFormat
-  def buildXmlschemaXAppinfoFormat: scalaxb.XMLFormat[xmlschema.XAppinfo]
-
-  implicit lazy val XmlschemaXDocumentationFormat: scalaxb.XMLFormat[xmlschema.XDocumentation] = buildXmlschemaXDocumentationFormat
-  def buildXmlschemaXDocumentationFormat: scalaxb.XMLFormat[xmlschema.XDocumentation]
-
-  implicit lazy val XmlschemaXAnnotationFormat: scalaxb.XMLFormat[xmlschema.XAnnotation] = buildXmlschemaXAnnotationFormat
-  def buildXmlschemaXAnnotationFormat: scalaxb.XMLFormat[xmlschema.XAnnotation]
-
-  implicit lazy val XmlschemaXAnyTypeFormat: scalaxb.XMLFormat[xmlschema.XAnyType] = buildXmlschemaXAnyTypeFormat
-  def buildXmlschemaXAnyTypeFormat: scalaxb.XMLFormat[xmlschema.XAnyType]
-
-  implicit lazy val XmlschemaXDerivationControlFormat: scalaxb.XMLFormat[xmlschema.XDerivationControl] = buildXmlschemaXDerivationControlFormat
-  def buildXmlschemaXDerivationControlFormat: scalaxb.XMLFormat[xmlschema.XDerivationControl]
-
-  implicit lazy val XmlschemaXSimpleTypeFormat: scalaxb.XMLFormat[xmlschema.XSimpleType] = buildXmlschemaXSimpleTypeFormat
-  def buildXmlschemaXSimpleTypeFormat: scalaxb.XMLFormat[xmlschema.XSimpleType]
-
-  implicit lazy val XmlschemaXTopLevelSimpleTypeFormat: scalaxb.XMLFormat[xmlschema.XTopLevelSimpleType] = buildXmlschemaXTopLevelSimpleTypeFormat
-  def buildXmlschemaXTopLevelSimpleTypeFormat: scalaxb.XMLFormat[xmlschema.XTopLevelSimpleType]
-
-  implicit lazy val XmlschemaXLocalSimpleTypeFormat: scalaxb.XMLFormat[xmlschema.XLocalSimpleType] = buildXmlschemaXLocalSimpleTypeFormat
-  def buildXmlschemaXLocalSimpleTypeFormat: scalaxb.XMLFormat[xmlschema.XLocalSimpleType]
-
-  implicit lazy val XmlschemaXRestrictionFormat: scalaxb.XMLFormat[xmlschema.XRestriction] = buildXmlschemaXRestrictionFormat
-  def buildXmlschemaXRestrictionFormat: scalaxb.XMLFormat[xmlschema.XRestriction]
-
-  implicit lazy val XmlschemaXListFormat: scalaxb.XMLFormat[xmlschema.XList] = buildXmlschemaXListFormat
-  def buildXmlschemaXListFormat: scalaxb.XMLFormat[xmlschema.XList]
-
-  implicit lazy val XmlschemaXUnionFormat: scalaxb.XMLFormat[xmlschema.XUnion] = buildXmlschemaXUnionFormat
-  def buildXmlschemaXUnionFormat: scalaxb.XMLFormat[xmlschema.XUnion]
-
-  implicit lazy val XmlschemaXFacetableFormat: scalaxb.XMLFormat[xmlschema.XFacetable] = buildXmlschemaXFacetableFormat
-  def buildXmlschemaXFacetableFormat: scalaxb.XMLFormat[xmlschema.XFacetable]
-
-  implicit lazy val XmlschemaXFacetFormat: scalaxb.XMLFormat[xmlschema.XFacet] = buildXmlschemaXFacetFormat
-  def buildXmlschemaXFacetFormat: scalaxb.XMLFormat[xmlschema.XFacet]
-
-  implicit lazy val XmlschemaXNoFixedFacetableFormat: scalaxb.XMLFormat[xmlschema.XNoFixedFacetable] = buildXmlschemaXNoFixedFacetableFormat
-  def buildXmlschemaXNoFixedFacetableFormat: scalaxb.XMLFormat[xmlschema.XNoFixedFacetable]
-
-  implicit lazy val XmlschemaXNoFixedFacetFormat: scalaxb.XMLFormat[xmlschema.XNoFixedFacet] = buildXmlschemaXNoFixedFacetFormat
-  def buildXmlschemaXNoFixedFacetFormat: scalaxb.XMLFormat[xmlschema.XNoFixedFacet]
-
-  implicit lazy val XmlschemaXNumFacetableFormat: scalaxb.XMLFormat[xmlschema.XNumFacetable] = buildXmlschemaXNumFacetableFormat
-  def buildXmlschemaXNumFacetableFormat: scalaxb.XMLFormat[xmlschema.XNumFacetable]
-
-  implicit lazy val XmlschemaXNumFacetFormat: scalaxb.XMLFormat[xmlschema.XNumFacet] = buildXmlschemaXNumFacetFormat
-  def buildXmlschemaXNumFacetFormat: scalaxb.XMLFormat[xmlschema.XNumFacet]
-
-  implicit lazy val XmlschemaXTotalDigitsFormat: scalaxb.XMLFormat[xmlschema.XTotalDigits] = buildXmlschemaXTotalDigitsFormat
-  def buildXmlschemaXTotalDigitsFormat: scalaxb.XMLFormat[xmlschema.XTotalDigits]
-
-  implicit lazy val XmlschemaXValueFormat: scalaxb.XMLFormat[xmlschema.XValue] = buildXmlschemaXValueFormat
-  def buildXmlschemaXValueFormat: scalaxb.XMLFormat[xmlschema.XValue]
-
-  implicit lazy val XmlschemaXWhiteSpaceFormat: scalaxb.XMLFormat[xmlschema.XWhiteSpace] = buildXmlschemaXWhiteSpaceFormat
-  def buildXmlschemaXWhiteSpaceFormat: scalaxb.XMLFormat[xmlschema.XWhiteSpace]
-
-  implicit lazy val XmlschemaXPatternFormat: scalaxb.XMLFormat[xmlschema.XPattern] = buildXmlschemaXPatternFormat
-  def buildXmlschemaXPatternFormat: scalaxb.XMLFormat[xmlschema.XPattern]
-
-  implicit lazy val XmlschemaXSimpleRestrictionModelSequenceFormat: scalaxb.XMLFormat[xmlschema.XSimpleRestrictionModelSequence] = buildXmlschemaXSimpleRestrictionModelSequenceFormat
-  def buildXmlschemaXSimpleRestrictionModelSequenceFormat: scalaxb.XMLFormat[xmlschema.XSimpleRestrictionModelSequence]
-
-  implicit lazy val XmlschemaXAllModelSequenceFormat: scalaxb.XMLFormat[xmlschema.XAllModelSequence] = buildXmlschemaXAllModelSequenceFormat
-  def buildXmlschemaXAllModelSequenceFormat: scalaxb.XMLFormat[xmlschema.XAllModelSequence]
-
-  implicit lazy val XmlschemaXComplexTypeModelSequence1Format: scalaxb.XMLFormat[xmlschema.XComplexTypeModelSequence1] = buildXmlschemaXComplexTypeModelSequence1Format
-  def buildXmlschemaXComplexTypeModelSequence1Format: scalaxb.XMLFormat[xmlschema.XComplexTypeModelSequence1]
-
-  implicit lazy val XmlschemaXAttrDeclsSequenceFormat: scalaxb.XMLFormat[xmlschema.XAttrDeclsSequence] = buildXmlschemaXAttrDeclsSequenceFormat
-  def buildXmlschemaXAttrDeclsSequenceFormat: scalaxb.XMLFormat[xmlschema.XAttrDeclsSequence]
-
-  implicit lazy val XmlschemaXDefRefFormat: scalaxb.AttributeGroupFormat[xmlschema.XDefRef] = buildXmlschemaXDefRefFormat
-  def buildXmlschemaXDefRefFormat: scalaxb.AttributeGroupFormat[xmlschema.XDefRef]
-
-  implicit lazy val XmlschemaXOccursFormat: scalaxb.AttributeGroupFormat[xmlschema.XOccurs] = buildXmlschemaXOccursFormat
-  def buildXmlschemaXOccursFormat: scalaxb.AttributeGroupFormat[xmlschema.XOccurs]
-
-  
-}
-
-object XDefaultXMLProtocol extends XDefaultXMLProtocol with scalaxb.DefaultXMLStandardTypes {
-  import scalaxb.Scalaxb._
-  val defaultScope = toScope(None -> "http://www.w3.org/2001/XMLSchema",
+  val defaultScope = scalaxb.toScope(None -> "http://www.w3.org/2001/XMLSchema",
     Some("xs") -> "http://www.w3.org/2001/XMLSchema",
-    Some("xsi") -> "http://www.w3.org/2001/XMLSchema-instance")  
-}
+    Some("xsi") -> "http://www.w3.org/2001/XMLSchema-instance")
+  implicit lazy val XmlschemaXOpenAttrsableFormat: scalaxb.XMLFormat[xmlschema.XOpenAttrsable] = new DefaultXmlschemaXOpenAttrsableFormat {}
+  implicit lazy val XmlschemaXOpenAttrsFormat: scalaxb.XMLFormat[xmlschema.XOpenAttrs] = new DefaultXmlschemaXOpenAttrsFormat {}
+  implicit lazy val XmlschemaXAnnotatedableFormat: scalaxb.XMLFormat[xmlschema.XAnnotatedable] = new DefaultXmlschemaXAnnotatedableFormat {}
+  implicit lazy val XmlschemaXAnnotatedFormat: scalaxb.XMLFormat[xmlschema.XAnnotated] = new DefaultXmlschemaXAnnotatedFormat {}
+  implicit lazy val XmlschemaXFormChoiceFormat: scalaxb.XMLFormat[xmlschema.XFormChoice] = new DefaultXmlschemaXFormChoiceFormat {}
+  implicit lazy val XmlschemaXReducedDerivationControlFormat: scalaxb.XMLFormat[xmlschema.XReducedDerivationControl] = new DefaultXmlschemaXReducedDerivationControlFormat {}
+  implicit lazy val XmlschemaXTypeDerivationControlFormat: scalaxb.XMLFormat[xmlschema.XTypeDerivationControl] = new DefaultXmlschemaXTypeDerivationControlFormat {}
+  implicit lazy val XmlschemaXSchemaFormat: scalaxb.XMLFormat[xmlschema.XSchema] = new DefaultXmlschemaXSchemaFormat {}
+  implicit lazy val XmlschemaXSchemaSequence1Format: scalaxb.XMLFormat[xmlschema.XSchemaSequence1] = new DefaultXmlschemaXSchemaSequence1Format {}
+  implicit lazy val XmlschemaXUseFormat: scalaxb.XMLFormat[xmlschema.XUse] = new DefaultXmlschemaXUseFormat {}
+  implicit lazy val XmlschemaXAttributableFormat: scalaxb.XMLFormat[xmlschema.XAttributable] = new DefaultXmlschemaXAttributableFormat {}
+  implicit lazy val XmlschemaXAttributeFormat: scalaxb.XMLFormat[xmlschema.XAttribute] = new DefaultXmlschemaXAttributeFormat {}
+  implicit lazy val XmlschemaXTopLevelAttributeFormat: scalaxb.XMLFormat[xmlschema.XTopLevelAttribute] = new DefaultXmlschemaXTopLevelAttributeFormat {}
+  implicit lazy val XmlschemaXComplexTypeFormat: scalaxb.XMLFormat[xmlschema.XComplexType] = new DefaultXmlschemaXComplexTypeFormat {}
+  implicit lazy val XmlschemaXTopLevelComplexTypeFormat: scalaxb.XMLFormat[xmlschema.XTopLevelComplexType] = new DefaultXmlschemaXTopLevelComplexTypeFormat {}
+  implicit lazy val XmlschemaXLocalComplexTypeFormat: scalaxb.XMLFormat[xmlschema.XLocalComplexType] = new DefaultXmlschemaXLocalComplexTypeFormat {}
+  implicit lazy val XmlschemaXRestrictionTypableFormat: scalaxb.XMLFormat[xmlschema.XRestrictionTypable] = new DefaultXmlschemaXRestrictionTypableFormat {}
+  implicit lazy val XmlschemaXRestrictionTypeFormat: scalaxb.XMLFormat[xmlschema.XRestrictionType] = new DefaultXmlschemaXRestrictionTypeFormat {}
+  implicit lazy val XmlschemaXComplexRestrictionTypeFormat: scalaxb.XMLFormat[xmlschema.XComplexRestrictionType] = new DefaultXmlschemaXComplexRestrictionTypeFormat {}
+  implicit lazy val XmlschemaXExtensionTypableFormat: scalaxb.XMLFormat[xmlschema.XExtensionTypable] = new DefaultXmlschemaXExtensionTypableFormat {}
+  implicit lazy val XmlschemaXExtensionTypeFormat: scalaxb.XMLFormat[xmlschema.XExtensionType] = new DefaultXmlschemaXExtensionTypeFormat {}
+  implicit lazy val XmlschemaXComplexContentFormat: scalaxb.XMLFormat[xmlschema.XComplexContent] = new DefaultXmlschemaXComplexContentFormat {}
+  implicit lazy val XmlschemaXSimpleRestrictionTypeFormat: scalaxb.XMLFormat[xmlschema.XSimpleRestrictionType] = new DefaultXmlschemaXSimpleRestrictionTypeFormat {}
+  implicit lazy val XmlschemaXSimpleExtensionTypeFormat: scalaxb.XMLFormat[xmlschema.XSimpleExtensionType] = new DefaultXmlschemaXSimpleExtensionTypeFormat {}
+  implicit lazy val XmlschemaXSimpleContentFormat: scalaxb.XMLFormat[xmlschema.XSimpleContent] = new DefaultXmlschemaXSimpleContentFormat {}
+  implicit lazy val XmlschemaXElementFormat: scalaxb.XMLFormat[xmlschema.XElement] = new DefaultXmlschemaXElementFormat {}
+  implicit lazy val XmlschemaXTopLevelElementFormat: scalaxb.XMLFormat[xmlschema.XTopLevelElement] = new DefaultXmlschemaXTopLevelElementFormat {}
+  implicit lazy val XmlschemaXLocalElementableFormat: scalaxb.XMLFormat[xmlschema.XLocalElementable] = new DefaultXmlschemaXLocalElementableFormat {}
+  implicit lazy val XmlschemaXLocalElementFormat: scalaxb.XMLFormat[xmlschema.XLocalElement] = new DefaultXmlschemaXLocalElementFormat {}
+  implicit lazy val XmlschemaXGroupFormat: scalaxb.XMLFormat[xmlschema.XGroup] = new DefaultXmlschemaXGroupFormat {}
+  implicit lazy val XmlschemaXRealGroupableFormat: scalaxb.XMLFormat[xmlschema.XRealGroupable] = new DefaultXmlschemaXRealGroupableFormat {}
+  implicit lazy val XmlschemaXRealGroupFormat: scalaxb.XMLFormat[xmlschema.XRealGroup] = new DefaultXmlschemaXRealGroupFormat {}
+  implicit lazy val XmlschemaXAllFormat: scalaxb.XMLFormat[xmlschema.XAll] = new DefaultXmlschemaXAllFormat {}
+  implicit lazy val XmlschemaXNamedGroupFormat: scalaxb.XMLFormat[xmlschema.XNamedGroup] = new DefaultXmlschemaXNamedGroupFormat {}
+  implicit lazy val XmlschemaXGroupRefFormat: scalaxb.XMLFormat[xmlschema.XGroupRef] = new DefaultXmlschemaXGroupRefFormat {}
+  implicit lazy val XmlschemaXExplicitGroupableFormat: scalaxb.XMLFormat[xmlschema.XExplicitGroupable] = new DefaultXmlschemaXExplicitGroupableFormat {}
+  implicit lazy val XmlschemaXExplicitGroupFormat: scalaxb.XMLFormat[xmlschema.XExplicitGroup] = new DefaultXmlschemaXExplicitGroupFormat {}
+  implicit lazy val XmlschemaXSimpleExplicitGroupFormat: scalaxb.XMLFormat[xmlschema.XSimpleExplicitGroup] = new DefaultXmlschemaXSimpleExplicitGroupFormat {}
+  implicit lazy val XmlschemaXMinOccursFormat: scalaxb.XMLFormat[xmlschema.XMinOccurs] = new DefaultXmlschemaXMinOccursFormat {}
+  implicit lazy val XmlschemaXMaxOccursFormat: scalaxb.XMLFormat[xmlschema.XMaxOccurs] = new DefaultXmlschemaXMaxOccursFormat {}
+  implicit lazy val XmlschemaXNarrowMaxMinFormat: scalaxb.XMLFormat[xmlschema.XNarrowMaxMin] = new DefaultXmlschemaXNarrowMaxMinFormat {}
+  implicit lazy val XmlschemaXMinOccursTypeFormat: scalaxb.XMLFormat[xmlschema.XMinOccursType] = new DefaultXmlschemaXMinOccursTypeFormat {}
+  implicit lazy val XmlschemaXMaxOccursTypeFormat: scalaxb.XMLFormat[xmlschema.XMaxOccursType] = new DefaultXmlschemaXMaxOccursTypeFormat {}
+  implicit lazy val XmlschemaXAllableFormat: scalaxb.XMLFormat[xmlschema.XAllable] = new DefaultXmlschemaXAllableFormat {}
+  implicit lazy val XmlschemaXAllTypeFormat: scalaxb.XMLFormat[xmlschema.XAllType] = new DefaultXmlschemaXAllTypeFormat {}
+  implicit lazy val XmlschemaXProcessContentsFormat: scalaxb.XMLFormat[xmlschema.XProcessContents] = new DefaultXmlschemaXProcessContentsFormat {}
+  implicit lazy val XmlschemaXWildcardableFormat: scalaxb.XMLFormat[xmlschema.XWildcardable] = new DefaultXmlschemaXWildcardableFormat {}
+  implicit lazy val XmlschemaXWildcardFormat: scalaxb.XMLFormat[xmlschema.XWildcard] = new DefaultXmlschemaXWildcardFormat {}
+  implicit lazy val XmlschemaXAnyFormat: scalaxb.XMLFormat[xmlschema.XAny] = new DefaultXmlschemaXAnyFormat {}
+  implicit lazy val XmlschemaXAttributeGroupFormat: scalaxb.XMLFormat[xmlschema.XAttributeGroup] = new DefaultXmlschemaXAttributeGroupFormat {}
+  implicit lazy val XmlschemaXNamedAttributeGroupFormat: scalaxb.XMLFormat[xmlschema.XNamedAttributeGroup] = new DefaultXmlschemaXNamedAttributeGroupFormat {}
+  implicit lazy val XmlschemaXAttributeGroupRefFormat: scalaxb.XMLFormat[xmlschema.XAttributeGroupRef] = new DefaultXmlschemaXAttributeGroupRefFormat {}
+  implicit lazy val XmlschemaXIncludeFormat: scalaxb.XMLFormat[xmlschema.XInclude] = new DefaultXmlschemaXIncludeFormat {}
+  implicit lazy val XmlschemaXRedefineFormat: scalaxb.XMLFormat[xmlschema.XRedefine] = new DefaultXmlschemaXRedefineFormat {}
+  implicit lazy val XmlschemaXImportFormat: scalaxb.XMLFormat[xmlschema.XImport] = new DefaultXmlschemaXImportFormat {}
+  implicit lazy val XmlschemaXSelectorFormat: scalaxb.XMLFormat[xmlschema.XSelector] = new DefaultXmlschemaXSelectorFormat {}
+  implicit lazy val XmlschemaXFieldFormat: scalaxb.XMLFormat[xmlschema.XField] = new DefaultXmlschemaXFieldFormat {}
+  implicit lazy val XmlschemaXKeybasableFormat: scalaxb.XMLFormat[xmlschema.XKeybasable] = new DefaultXmlschemaXKeybasableFormat {}
+  implicit lazy val XmlschemaXKeybaseFormat: scalaxb.XMLFormat[xmlschema.XKeybase] = new DefaultXmlschemaXKeybaseFormat {}
+  implicit lazy val XmlschemaXKeyrefFormat: scalaxb.XMLFormat[xmlschema.XKeyref] = new DefaultXmlschemaXKeyrefFormat {}
+  implicit lazy val XmlschemaXNotationFormat: scalaxb.XMLFormat[xmlschema.XNotation] = new DefaultXmlschemaXNotationFormat {}
+  implicit lazy val XmlschemaXAppinfoFormat: scalaxb.XMLFormat[xmlschema.XAppinfo] = new DefaultXmlschemaXAppinfoFormat {}
+  implicit lazy val XmlschemaXDocumentationFormat: scalaxb.XMLFormat[xmlschema.XDocumentation] = new DefaultXmlschemaXDocumentationFormat {}
+  implicit lazy val XmlschemaXAnnotationFormat: scalaxb.XMLFormat[xmlschema.XAnnotation] = new DefaultXmlschemaXAnnotationFormat {}
+  implicit lazy val XmlschemaXAnyTypeFormat: scalaxb.XMLFormat[xmlschema.XAnyType] = new DefaultXmlschemaXAnyTypeFormat {}
+  implicit lazy val XmlschemaXDerivationControlFormat: scalaxb.XMLFormat[xmlschema.XDerivationControl] = new DefaultXmlschemaXDerivationControlFormat {}
+  implicit lazy val XmlschemaXSimpleTypeFormat: scalaxb.XMLFormat[xmlschema.XSimpleType] = new DefaultXmlschemaXSimpleTypeFormat {}
+  implicit lazy val XmlschemaXTopLevelSimpleTypeFormat: scalaxb.XMLFormat[xmlschema.XTopLevelSimpleType] = new DefaultXmlschemaXTopLevelSimpleTypeFormat {}
+  implicit lazy val XmlschemaXLocalSimpleTypeFormat: scalaxb.XMLFormat[xmlschema.XLocalSimpleType] = new DefaultXmlschemaXLocalSimpleTypeFormat {}
+  implicit lazy val XmlschemaXRestrictionFormat: scalaxb.XMLFormat[xmlschema.XRestriction] = new DefaultXmlschemaXRestrictionFormat {}
+  implicit lazy val XmlschemaXListFormat: scalaxb.XMLFormat[xmlschema.XList] = new DefaultXmlschemaXListFormat {}
+  implicit lazy val XmlschemaXUnionFormat: scalaxb.XMLFormat[xmlschema.XUnion] = new DefaultXmlschemaXUnionFormat {}
+  implicit lazy val XmlschemaXFacetableFormat: scalaxb.XMLFormat[xmlschema.XFacetable] = new DefaultXmlschemaXFacetableFormat {}
+  implicit lazy val XmlschemaXFacetFormat: scalaxb.XMLFormat[xmlschema.XFacet] = new DefaultXmlschemaXFacetFormat {}
+  implicit lazy val XmlschemaXNoFixedFacetableFormat: scalaxb.XMLFormat[xmlschema.XNoFixedFacetable] = new DefaultXmlschemaXNoFixedFacetableFormat {}
+  implicit lazy val XmlschemaXNoFixedFacetFormat: scalaxb.XMLFormat[xmlschema.XNoFixedFacet] = new DefaultXmlschemaXNoFixedFacetFormat {}
+  implicit lazy val XmlschemaXNumFacetableFormat: scalaxb.XMLFormat[xmlschema.XNumFacetable] = new DefaultXmlschemaXNumFacetableFormat {}
+  implicit lazy val XmlschemaXNumFacetFormat: scalaxb.XMLFormat[xmlschema.XNumFacet] = new DefaultXmlschemaXNumFacetFormat {}
+  implicit lazy val XmlschemaXTotalDigitsFormat: scalaxb.XMLFormat[xmlschema.XTotalDigits] = new DefaultXmlschemaXTotalDigitsFormat {}
+  implicit lazy val XmlschemaXValueFormat: scalaxb.XMLFormat[xmlschema.XValue] = new DefaultXmlschemaXValueFormat {}
+  implicit lazy val XmlschemaXWhiteSpaceFormat: scalaxb.XMLFormat[xmlschema.XWhiteSpace] = new DefaultXmlschemaXWhiteSpaceFormat {}
+  implicit lazy val XmlschemaXPatternFormat: scalaxb.XMLFormat[xmlschema.XPattern] = new DefaultXmlschemaXPatternFormat {}
+  implicit lazy val XmlschemaXSimpleRestrictionModelSequenceFormat: scalaxb.XMLFormat[xmlschema.XSimpleRestrictionModelSequence] = new DefaultXmlschemaXSimpleRestrictionModelSequenceFormat {}
+  implicit lazy val XmlschemaXAllModelSequenceFormat: scalaxb.XMLFormat[xmlschema.XAllModelSequence] = new DefaultXmlschemaXAllModelSequenceFormat {}
+  implicit lazy val XmlschemaXComplexTypeModelSequence1Format: scalaxb.XMLFormat[xmlschema.XComplexTypeModelSequence1] = new DefaultXmlschemaXComplexTypeModelSequence1Format {}
+  implicit lazy val XmlschemaXAttrDeclsSequenceFormat: scalaxb.XMLFormat[xmlschema.XAttrDeclsSequence] = new DefaultXmlschemaXAttrDeclsSequenceFormat {}
+  implicit lazy val XmlschemaXDefRefFormat: scalaxb.AttributeGroupFormat[xmlschema.XDefRef] = new DefaultXmlschemaXDefRefFormat {}
+  implicit lazy val XmlschemaXOccursFormat: scalaxb.AttributeGroupFormat[xmlschema.XOccurs] = new DefaultXmlschemaXOccursFormat {}
 
-trait XDefaultXMLProtocol extends XXMLProtocol {
-  import scalaxb.Scalaxb._
-
-  override def buildXmlschemaXOpenAttrsableFormat = new DefaultXmlschemaXOpenAttrsableFormat {}
   trait DefaultXmlschemaXOpenAttrsableFormat extends scalaxb.XMLFormat[xmlschema.XOpenAttrsable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XOpenAttrsable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XOpenAttrsable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("annotated")) => Right(fromXML[xmlschema.XAnnotatedable](node))
-          case (targetNamespace, Some("annotation")) => Right(fromXML[xmlschema.XAnnotation](node))
-          case (targetNamespace, Some("redefine")) => Right(fromXML[xmlschema.XRedefine](node))
-          case (targetNamespace, Some("schema")) => Right(fromXML[xmlschema.XSchema](node))
-          case _ => Right(fromXML[xmlschema.XOpenAttrs](node))
+          case (targetNamespace, Some("annotated")) => Right(scalaxb.fromXML[xmlschema.XAnnotatedable](node, stack))
+          case (targetNamespace, Some("annotation")) => Right(scalaxb.fromXML[xmlschema.XAnnotation](node, stack))
+          case (targetNamespace, Some("redefine")) => Right(scalaxb.fromXML[xmlschema.XRedefine](node, stack))
+          case (targetNamespace, Some("schema")) => Right(scalaxb.fromXML[xmlschema.XSchema](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XOpenAttrs](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XOpenAttrsable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XAnnotatedable => toXML[xmlschema.XAnnotatedable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XAnnotation => toXML[xmlschema.XAnnotation](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XRedefine => toXML[xmlschema.XRedefine](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XSchema => toXML[xmlschema.XSchema](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XOpenAttrs => toXML[xmlschema.XOpenAttrs](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XAnnotatedable => scalaxb.toXML[xmlschema.XAnnotatedable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XAnnotation => scalaxb.toXML[xmlschema.XAnnotation](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XRedefine => scalaxb.toXML[xmlschema.XRedefine](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XSchema => scalaxb.toXML[xmlschema.XSchema](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XOpenAttrs => scalaxb.toXML[xmlschema.XOpenAttrs](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXOpenAttrsFormat = new DefaultXmlschemaXOpenAttrsFormat {}
   trait DefaultXmlschemaXOpenAttrsFormat extends scalaxb.XMLFormat[xmlschema.XOpenAttrs] with scalaxb.CanWriteChildNodes[xmlschema.XOpenAttrs] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XOpenAttrs] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XOpenAttrs] = seq match {
       case node: scala.xml.Node => Right(xmlschema.XOpenAttrs(scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -343,81 +156,79 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XOpenAttrs, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Nil
+      (scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
 
   }
 
-  override def buildXmlschemaXAnnotatedableFormat = new DefaultXmlschemaXAnnotatedableFormat {}
   trait DefaultXmlschemaXAnnotatedableFormat extends scalaxb.XMLFormat[xmlschema.XAnnotatedable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XAnnotatedable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XAnnotatedable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("attribute")) => Right(fromXML[xmlschema.XAttributable](node))
-          case (targetNamespace, Some("complexType")) => Right(fromXML[xmlschema.XComplexType](node))
-          case (targetNamespace, Some("restrictionType")) => Right(fromXML[xmlschema.XRestrictionTypable](node))
-          case (targetNamespace, Some("extensionType")) => Right(fromXML[xmlschema.XExtensionTypable](node))
-          case (targetNamespace, Some("element")) => Right(fromXML[xmlschema.XElement](node))
-          case (targetNamespace, Some("group")) => Right(fromXML[xmlschema.XGroup](node))
-          case (targetNamespace, Some("wildcard")) => Right(fromXML[xmlschema.XWildcardable](node))
-          case (targetNamespace, Some("attributeGroup")) => Right(fromXML[xmlschema.XAttributeGroup](node))
-          case (targetNamespace, Some("keybase")) => Right(fromXML[xmlschema.XKeybasable](node))
-          case (targetNamespace, Some("simpleType")) => Right(fromXML[xmlschema.XSimpleType](node))
-          case (targetNamespace, Some("facet")) => Right(fromXML[xmlschema.XFacetable](node))
-          case (targetNamespace, Some("union")) => Right(fromXML[xmlschema.XUnion](node))
-          case (targetNamespace, Some("list")) => Right(fromXML[xmlschema.XList](node))
-          case (targetNamespace, Some("restriction")) => Right(fromXML[xmlschema.XRestriction](node))
-          case (targetNamespace, Some("notation")) => Right(fromXML[xmlschema.XNotation](node))
-          case (targetNamespace, Some("field")) => Right(fromXML[xmlschema.XField](node))
-          case (targetNamespace, Some("selector")) => Right(fromXML[xmlschema.XSelector](node))
-          case (targetNamespace, Some("import")) => Right(fromXML[xmlschema.XImport](node))
-          case (targetNamespace, Some("include")) => Right(fromXML[xmlschema.XInclude](node))
-          case (targetNamespace, Some("simpleContent")) => Right(fromXML[xmlschema.XSimpleContent](node))
-          case (targetNamespace, Some("complexContent")) => Right(fromXML[xmlschema.XComplexContent](node))
-          case _ => Right(fromXML[xmlschema.XAnnotated](node))
+          case (targetNamespace, Some("attribute")) => Right(scalaxb.fromXML[xmlschema.XAttributable](node, stack))
+          case (targetNamespace, Some("complexType")) => Right(scalaxb.fromXML[xmlschema.XComplexType](node, stack))
+          case (targetNamespace, Some("restrictionType")) => Right(scalaxb.fromXML[xmlschema.XRestrictionTypable](node, stack))
+          case (targetNamespace, Some("extensionType")) => Right(scalaxb.fromXML[xmlschema.XExtensionTypable](node, stack))
+          case (targetNamespace, Some("element")) => Right(scalaxb.fromXML[xmlschema.XElement](node, stack))
+          case (targetNamespace, Some("group")) => Right(scalaxb.fromXML[xmlschema.XGroup](node, stack))
+          case (targetNamespace, Some("wildcard")) => Right(scalaxb.fromXML[xmlschema.XWildcardable](node, stack))
+          case (targetNamespace, Some("attributeGroup")) => Right(scalaxb.fromXML[xmlschema.XAttributeGroup](node, stack))
+          case (targetNamespace, Some("keybase")) => Right(scalaxb.fromXML[xmlschema.XKeybasable](node, stack))
+          case (targetNamespace, Some("simpleType")) => Right(scalaxb.fromXML[xmlschema.XSimpleType](node, stack))
+          case (targetNamespace, Some("facet")) => Right(scalaxb.fromXML[xmlschema.XFacetable](node, stack))
+          case (targetNamespace, Some("union")) => Right(scalaxb.fromXML[xmlschema.XUnion](node, stack))
+          case (targetNamespace, Some("list")) => Right(scalaxb.fromXML[xmlschema.XList](node, stack))
+          case (targetNamespace, Some("restriction")) => Right(scalaxb.fromXML[xmlschema.XRestriction](node, stack))
+          case (targetNamespace, Some("notation")) => Right(scalaxb.fromXML[xmlschema.XNotation](node, stack))
+          case (targetNamespace, Some("field")) => Right(scalaxb.fromXML[xmlschema.XField](node, stack))
+          case (targetNamespace, Some("selector")) => Right(scalaxb.fromXML[xmlschema.XSelector](node, stack))
+          case (targetNamespace, Some("import")) => Right(scalaxb.fromXML[xmlschema.XImport](node, stack))
+          case (targetNamespace, Some("include")) => Right(scalaxb.fromXML[xmlschema.XInclude](node, stack))
+          case (targetNamespace, Some("simpleContent")) => Right(scalaxb.fromXML[xmlschema.XSimpleContent](node, stack))
+          case (targetNamespace, Some("complexContent")) => Right(scalaxb.fromXML[xmlschema.XComplexContent](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XAnnotated](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XAnnotatedable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XAttributable => toXML[xmlschema.XAttributable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XComplexType => toXML[xmlschema.XComplexType](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XRestrictionTypable => toXML[xmlschema.XRestrictionTypable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XExtensionTypable => toXML[xmlschema.XExtensionTypable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XElement => toXML[xmlschema.XElement](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XGroup => toXML[xmlschema.XGroup](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XWildcardable => toXML[xmlschema.XWildcardable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XAttributeGroup => toXML[xmlschema.XAttributeGroup](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XKeybasable => toXML[xmlschema.XKeybasable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XSimpleType => toXML[xmlschema.XSimpleType](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XFacetable => toXML[xmlschema.XFacetable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XUnion => toXML[xmlschema.XUnion](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XList => toXML[xmlschema.XList](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XRestriction => toXML[xmlschema.XRestriction](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XNotation => toXML[xmlschema.XNotation](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XField => toXML[xmlschema.XField](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XSelector => toXML[xmlschema.XSelector](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XImport => toXML[xmlschema.XImport](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XInclude => toXML[xmlschema.XInclude](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XSimpleContent => toXML[xmlschema.XSimpleContent](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XComplexContent => toXML[xmlschema.XComplexContent](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XAnnotated => toXML[xmlschema.XAnnotated](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XAttributable => scalaxb.toXML[xmlschema.XAttributable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XComplexType => scalaxb.toXML[xmlschema.XComplexType](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XRestrictionTypable => scalaxb.toXML[xmlschema.XRestrictionTypable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XExtensionTypable => scalaxb.toXML[xmlschema.XExtensionTypable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XElement => scalaxb.toXML[xmlschema.XElement](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XGroup => scalaxb.toXML[xmlschema.XGroup](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XWildcardable => scalaxb.toXML[xmlschema.XWildcardable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XAttributeGroup => scalaxb.toXML[xmlschema.XAttributeGroup](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XKeybasable => scalaxb.toXML[xmlschema.XKeybasable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XSimpleType => scalaxb.toXML[xmlschema.XSimpleType](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XFacetable => scalaxb.toXML[xmlschema.XFacetable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XUnion => scalaxb.toXML[xmlschema.XUnion](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XList => scalaxb.toXML[xmlschema.XList](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XRestriction => scalaxb.toXML[xmlschema.XRestriction](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XNotation => scalaxb.toXML[xmlschema.XNotation](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XField => scalaxb.toXML[xmlschema.XField](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XSelector => scalaxb.toXML[xmlschema.XSelector](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XImport => scalaxb.toXML[xmlschema.XImport](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XInclude => scalaxb.toXML[xmlschema.XInclude](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XSimpleContent => scalaxb.toXML[xmlschema.XSimpleContent](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XComplexContent => scalaxb.toXML[xmlschema.XComplexContent](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XAnnotated => scalaxb.toXML[xmlschema.XAnnotated](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXAnnotatedFormat = new DefaultXmlschemaXAnnotatedFormat {}
   trait DefaultXmlschemaXAnnotatedFormat extends scalaxb.ElemNameParser[xmlschema.XAnnotated] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("annotated")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XAnnotated] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAnnotated] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XAnnotated(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
+      xmlschema.XAnnotated(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -441,7 +252,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XAnnotated, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
@@ -449,7 +261,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXFormChoiceFormat extends scalaxb.XMLFormat[xmlschema.XFormChoice] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XFormChoice] = Right(xmlschema.XFormChoice.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XFormChoice] =
+      Right(xmlschema.XFormChoice.fromString(seq.text))
     
     def writes(__obj: xmlschema.XFormChoice, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -462,7 +275,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXReducedDerivationControlFormat extends scalaxb.XMLFormat[xmlschema.XReducedDerivationControl] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XReducedDerivationControl] = Right(xmlschema.XReducedDerivationControl.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XReducedDerivationControl] =
+      Right(xmlschema.XReducedDerivationControl.fromString(seq.text))
     
     def writes(__obj: xmlschema.XReducedDerivationControl, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -475,7 +289,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXTypeDerivationControlFormat extends scalaxb.XMLFormat[xmlschema.XTypeDerivationControl] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XTypeDerivationControl] = Right(xmlschema.XTypeDerivationControl.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XTypeDerivationControl] =
+      Right(xmlschema.XTypeDerivationControl.fromString(seq.text))
     
     def writes(__obj: xmlschema.XTypeDerivationControl, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -484,34 +299,33 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         scala.xml.Null, __scope, scala.xml.Text(__obj.toString))
   }
 
-  override def buildXmlschemaXSchemaFormat = new DefaultXmlschemaXSchemaFormat {}
   trait DefaultXmlschemaXSchemaFormat extends scalaxb.ElemNameParser[xmlschema.XSchema] with XmlschemaXSchemaTopGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XSchema] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XSchema] =
       rep(((scalaxb.ElemName(targetNamespace, "include")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XInclude](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XInclude](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "import")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XImport](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XImport](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "redefine")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XRedefine](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XRedefine](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "annotation")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAnnotation](x))))) ~ 
-      rep(((parseXSchemaTopGroup) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAnnotation](x, scalaxb.ElemName(node) :: stack))))) ~ 
+      rep(((parseXSchemaTopGroup(node, scalaxb.ElemName(node) :: stack)) ~ 
       rep(scalaxb.ElemName(targetNamespace, "annotation"))) ^^ 
         { case p1 ~ p2 => xmlschema.XSchemaSequence1(p1,
-        p2.toSeq map { fromXML[xmlschema.XAnnotation](_) }) }) ^^
+        p2.toSeq map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) }) }) ^^
       { case p1 ~ p2 =>
       xmlschema.XSchema(p1.toSeq,
         p2.toSeq,
-        (node \ "@targetNamespace").headOption map { fromXML[java.net.URI](_) },
-        (node \ "@version").headOption map { fromXML[String](_) },
-        (node \ "@finalDefault").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("")) },
-        (node \ "@blockDefault").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("")) },
-        (node \ "@attributeFormDefault").headOption map { fromXML[xmlschema.XFormChoice](_) } getOrElse { fromXML[xmlschema.XFormChoice](scala.xml.Text("unqualified")) },
-        (node \ "@elementFormDefault").headOption map { fromXML[xmlschema.XFormChoice](_) } getOrElse { fromXML[xmlschema.XFormChoice](scala.xml.Text("unqualified")) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@{http://www.w3.org/XML/1998/namespace}lang").headOption map { fromXML[String](_) },
+        (node \ "@targetNamespace").headOption map { scalaxb.fromXML[java.net.URI](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@version").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@finalDefault").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text(""), scalaxb.ElemName(node) :: stack) },
+        (node \ "@blockDefault").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text(""), scalaxb.ElemName(node) :: stack) },
+        (node \ "@attributeFormDefault").headOption map { scalaxb.fromXML[xmlschema.XFormChoice](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[xmlschema.XFormChoice](scala.xml.Text("unqualified"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@elementFormDefault").headOption map { scalaxb.fromXML[xmlschema.XFormChoice](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[xmlschema.XFormChoice](scala.xml.Text("unqualified"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@{http://www.w3.org/XML/1998/namespace}lang").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -550,21 +364,21 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XSchema, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.xschemaoption flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XSchemaOption]](x, x.namespace, x.key, __scope, false) },
-        __obj.xschemasequence1 flatMap { toXML[xmlschema.XSchemaSequence1](_, targetNamespace, Some("xschemasequence1"), __scope, false) })
+      Seq.concat(__obj.xschemaoption flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XSchemaOption]](x, x.namespace, x.key, __scope, false) },
+        __obj.xschemasequence1 flatMap { scalaxb.toXML[xmlschema.XSchemaSequence1](_, None, Some("xschemasequence1"), __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXSchemaSequence1Format = new DefaultXmlschemaXSchemaSequence1Format {} 
   trait DefaultXmlschemaXSchemaSequence1Format extends scalaxb.XMLFormat[xmlschema.XSchemaSequence1] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XSchemaSequence1] = Left("don't call me.")
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XSchemaSequence1] = Left("don't call me.")
     
     def writes(__obj: xmlschema.XSchemaSequence1, __namespace: Option[String], __elementLabel: Option[String], 
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
-      Seq.concat(toXML[scalaxb.DataRecord[Any]](__obj.arg1, targetNamespace, __obj.arg1.key, __scope, false),
-        __obj.annotation flatMap { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) })
+      Seq.concat(Some(__obj.arg1) map {x => scalaxb.toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false)} get,
+        __obj.annotation flatMap { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) })
 
 
   }
@@ -573,7 +387,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXUseFormat extends scalaxb.XMLFormat[xmlschema.XUse] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XUse] = Right(xmlschema.XUse.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XUse] =
+      Right(xmlschema.XUse.fromString(seq.text))
     
     def writes(__obj: xmlschema.XUse, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -582,45 +397,43 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         scala.xml.Null, __scope, scala.xml.Text(__obj.toString))
   }
 
-  override def buildXmlschemaXAttributableFormat = new DefaultXmlschemaXAttributableFormat {}
   trait DefaultXmlschemaXAttributableFormat extends scalaxb.XMLFormat[xmlschema.XAttributable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XAttributable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XAttributable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("topLevelAttribute")) => Right(fromXML[xmlschema.XTopLevelAttribute](node))
-          case _ => Right(fromXML[xmlschema.XAttribute](node))
+          case (targetNamespace, Some("topLevelAttribute")) => Right(scalaxb.fromXML[xmlschema.XTopLevelAttribute](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XAttribute](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XAttributable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XTopLevelAttribute => toXML[xmlschema.XTopLevelAttribute](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XAttribute => toXML[xmlschema.XAttribute](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XTopLevelAttribute => scalaxb.toXML[xmlschema.XTopLevelAttribute](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XAttribute => scalaxb.toXML[xmlschema.XAttribute](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXAttributeFormat = new DefaultXmlschemaXAttributeFormat {}
   trait DefaultXmlschemaXAttributeFormat extends scalaxb.ElemNameParser[xmlschema.XAttribute] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("attribute")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XAttribute] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAttribute] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       opt(scalaxb.ElemName(targetNamespace, "simpleType")) ^^
       { case p1 ~ p2 =>
-      xmlschema.XAttribute(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        p2.headOption map { fromXML[xmlschema.XLocalSimpleType](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@type").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@use").headOption map { fromXML[xmlschema.XUse](_) } getOrElse { fromXML[xmlschema.XUse](scala.xml.Text("optional")) },
-        (node \ "@default").headOption map { fromXML[String](_) },
-        (node \ "@fixed").headOption map { fromXML[String](_) },
-        (node \ "@form").headOption map { fromXML[xmlschema.XFormChoice](_) },
+      xmlschema.XAttribute(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        p2.headOption map { scalaxb.fromXML[xmlschema.XLocalSimpleType](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@type").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@use").headOption map { scalaxb.fromXML[xmlschema.XUse](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[xmlschema.XUse](scala.xml.Text("optional"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@default").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@fixed").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@form").headOption map { scalaxb.fromXML[xmlschema.XFormChoice](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -658,31 +471,31 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XAttribute, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.simpleType map { toXML[xmlschema.XLocalSimpleType](_, None, Some("simpleType"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.simpleType map { scalaxb.toXML[xmlschema.XLocalSimpleType](_, targetNamespace, Some("simpleType"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXTopLevelAttributeFormat = new DefaultXmlschemaXTopLevelAttributeFormat {}
   trait DefaultXmlschemaXTopLevelAttributeFormat extends scalaxb.ElemNameParser[xmlschema.XTopLevelAttribute] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("topLevelAttribute")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XTopLevelAttribute] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XTopLevelAttribute] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       opt(scalaxb.ElemName(targetNamespace, "simpleType")) ^^
       { case p1 ~ p2 =>
-      xmlschema.XTopLevelAttribute(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        p2.headOption map { fromXML[xmlschema.XLocalSimpleType](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@type").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@use").headOption map { fromXML[xmlschema.XUse](_) } getOrElse { fromXML[xmlschema.XUse](scala.xml.Text("optional")) },
-        (node \ "@default").headOption map { fromXML[String](_) },
-        (node \ "@fixed").headOption map { fromXML[String](_) },
-        (node \ "@form").headOption map { fromXML[xmlschema.XFormChoice](_) },
+      xmlschema.XTopLevelAttribute(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        p2.headOption map { scalaxb.fromXML[xmlschema.XLocalSimpleType](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@type").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@use").headOption map { scalaxb.fromXML[xmlschema.XUse](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[xmlschema.XUse](scala.xml.Text("optional"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@default").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@fixed").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@form").headOption map { scalaxb.fromXML[xmlschema.XFormChoice](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -720,19 +533,19 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XTopLevelAttribute, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.simpleType map { toXML[xmlschema.XLocalSimpleType](_, None, Some("simpleType"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.simpleType map { scalaxb.toXML[xmlschema.XLocalSimpleType](_, targetNamespace, Some("simpleType"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXComplexTypeFormat = new DefaultXmlschemaXComplexTypeFormat {}
   trait DefaultXmlschemaXComplexTypeFormat extends scalaxb.XMLFormat[xmlschema.XComplexType] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XComplexType] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XComplexType] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("topLevelComplexType")) => Right(fromXML[xmlschema.XTopLevelComplexType](node))
-          case (targetNamespace, Some("localComplexType")) => Right(fromXML[xmlschema.XLocalComplexType](node))
+          case (targetNamespace, Some("topLevelComplexType")) => Right(scalaxb.fromXML[xmlschema.XTopLevelComplexType](node, stack))
+          case (targetNamespace, Some("localComplexType")) => Right(scalaxb.fromXML[xmlschema.XLocalComplexType](node, stack))
           case x => Left("Unknown type: " + x)
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
@@ -740,30 +553,29 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     
     def writes(__obj: xmlschema.XComplexType, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XTopLevelComplexType => toXML[xmlschema.XTopLevelComplexType](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XLocalComplexType => toXML[xmlschema.XLocalComplexType](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XTopLevelComplexType => scalaxb.toXML[xmlschema.XTopLevelComplexType](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XLocalComplexType => scalaxb.toXML[xmlschema.XLocalComplexType](x, __namespace, __elementLabel, __scope, true)
       case _ => error("Unknown type: " + __obj)
     }
   }
 
-  override def buildXmlschemaXTopLevelComplexTypeFormat = new DefaultXmlschemaXTopLevelComplexTypeFormat {}
   trait DefaultXmlschemaXTopLevelComplexTypeFormat extends scalaxb.ElemNameParser[xmlschema.XTopLevelComplexType] with XmlschemaXComplexTypeModelGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("topLevelComplexType")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XTopLevelComplexType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XTopLevelComplexType] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      (parseXComplexTypeModelGroup) ^^
+      (parseXComplexTypeModelGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XTopLevelComplexType(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XTopLevelComplexType(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@mixed").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
-        (node \ "@abstract").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
-        (node \ "@final").headOption map { fromXML[String](_) },
-        (node \ "@block").headOption map { fromXML[String](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@mixed").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@abstract").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@final").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@block").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -797,29 +609,29 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XTopLevelComplexType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[scalaxb.DataRecord[xmlschema.XComplexTypeModelOption]](__obj.arg1, targetNamespace, __obj.arg1.key, __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        Some(__obj.arg1) map {x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XComplexTypeModelOption]](x, x.namespace, x.key, __scope, false)} get,
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXLocalComplexTypeFormat = new DefaultXmlschemaXLocalComplexTypeFormat {}
   trait DefaultXmlschemaXLocalComplexTypeFormat extends scalaxb.ElemNameParser[xmlschema.XLocalComplexType] with XmlschemaXComplexTypeModelGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("localComplexType")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XLocalComplexType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XLocalComplexType] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      (parseXComplexTypeModelGroup) ^^
+      (parseXComplexTypeModelGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XLocalComplexType(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XLocalComplexType(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@mixed").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
-        (node \ "@abstract").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
-        (node \ "@final").headOption map { fromXML[String](_) },
-        (node \ "@block").headOption map { fromXML[String](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@mixed").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@abstract").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@final").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@block").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -853,49 +665,48 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XLocalComplexType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[scalaxb.DataRecord[xmlschema.XComplexTypeModelOption]](__obj.arg1, targetNamespace, __obj.arg1.key, __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        Some(__obj.arg1) map {x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XComplexTypeModelOption]](x, x.namespace, x.key, __scope, false)} get,
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXRestrictionTypableFormat = new DefaultXmlschemaXRestrictionTypableFormat {}
   trait DefaultXmlschemaXRestrictionTypableFormat extends scalaxb.XMLFormat[xmlschema.XRestrictionTypable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XRestrictionTypable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XRestrictionTypable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("complexRestrictionType")) => Right(fromXML[xmlschema.XComplexRestrictionType](node))
-          case (targetNamespace, Some("simpleRestrictionType")) => Right(fromXML[xmlschema.XSimpleRestrictionType](node))
-          case _ => Right(fromXML[xmlschema.XRestrictionType](node))
+          case (targetNamespace, Some("complexRestrictionType")) => Right(scalaxb.fromXML[xmlschema.XComplexRestrictionType](node, stack))
+          case (targetNamespace, Some("simpleRestrictionType")) => Right(scalaxb.fromXML[xmlschema.XSimpleRestrictionType](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XRestrictionType](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XRestrictionTypable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XComplexRestrictionType => toXML[xmlschema.XComplexRestrictionType](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XSimpleRestrictionType => toXML[xmlschema.XSimpleRestrictionType](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XRestrictionType => toXML[xmlschema.XRestrictionType](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XComplexRestrictionType => scalaxb.toXML[xmlschema.XComplexRestrictionType](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XSimpleRestrictionType => scalaxb.toXML[xmlschema.XSimpleRestrictionType](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XRestrictionType => scalaxb.toXML[xmlschema.XRestrictionType](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXRestrictionTypeFormat = new DefaultXmlschemaXRestrictionTypeFormat {}
   trait DefaultXmlschemaXRestrictionTypeFormat extends scalaxb.ElemNameParser[xmlschema.XRestrictionType] with XmlschemaXTypeDefParticleGroupFormat with XmlschemaXSimpleRestrictionModelGroupFormat with XmlschemaXAttrDeclsGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("restrictionType")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XRestrictionType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XRestrictionType] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      opt((parseXTypeDefParticleGroup(true)) ||| 
-      (parseXSimpleRestrictionModelGroup(true))) ~ 
-      (parseXAttrDeclsGroup) ^^
+      opt((parseXTypeDefParticleGroup(node, scalaxb.ElemName(node) :: stack, true)) ||| 
+      (parseXSimpleRestrictionModelGroup(node, scalaxb.ElemName(node) :: stack, true))) ~ 
+      (parseXAttrDeclsGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 ~ p3 =>
-      xmlschema.XRestrictionType(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XRestrictionType(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
         p3,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[javax.xml.namespace.QName]((node \ "@base")),
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[javax.xml.namespace.QName]((node \ "@base"), scalaxb.ElemName(node) :: stack),
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -921,29 +732,29 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XRestrictionType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.xrestrictiontypableoption map { x => toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, targetNamespace, Some("arg2"), __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.xrestrictiontypableoption map { x => scalaxb.toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, None, Some("arg2"), __scope, false),
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXComplexRestrictionTypeFormat = new DefaultXmlschemaXComplexRestrictionTypeFormat {}
   trait DefaultXmlschemaXComplexRestrictionTypeFormat extends scalaxb.ElemNameParser[xmlschema.XComplexRestrictionType] with XmlschemaXTypeDefParticleGroupFormat with XmlschemaXSimpleRestrictionModelGroupFormat with XmlschemaXAttrDeclsGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("complexRestrictionType")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XComplexRestrictionType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XComplexRestrictionType] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      opt((parseXTypeDefParticleGroup(true)) ||| 
-      (parseXSimpleRestrictionModelGroup(true))) ~ 
-      (parseXAttrDeclsGroup) ^^
+      opt((parseXTypeDefParticleGroup(node, scalaxb.ElemName(node) :: stack, true)) ||| 
+      (parseXSimpleRestrictionModelGroup(node, scalaxb.ElemName(node) :: stack, true))) ~ 
+      (parseXAttrDeclsGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 ~ p3 =>
-      xmlschema.XComplexRestrictionType(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XComplexRestrictionType(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
         p3,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[javax.xml.namespace.QName]((node \ "@base")),
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[javax.xml.namespace.QName]((node \ "@base"), scalaxb.ElemName(node) :: stack),
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -969,47 +780,46 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XComplexRestrictionType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.xrestrictiontypableoption map { x => toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, targetNamespace, Some("arg2"), __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.xrestrictiontypableoption map { x => scalaxb.toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, None, Some("arg2"), __scope, false),
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXExtensionTypableFormat = new DefaultXmlschemaXExtensionTypableFormat {}
   trait DefaultXmlschemaXExtensionTypableFormat extends scalaxb.XMLFormat[xmlschema.XExtensionTypable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XExtensionTypable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XExtensionTypable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("simpleExtensionType")) => Right(fromXML[xmlschema.XSimpleExtensionType](node))
-          case _ => Right(fromXML[xmlschema.XExtensionType](node))
+          case (targetNamespace, Some("simpleExtensionType")) => Right(scalaxb.fromXML[xmlschema.XSimpleExtensionType](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XExtensionType](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XExtensionTypable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XSimpleExtensionType => toXML[xmlschema.XSimpleExtensionType](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XExtensionType => toXML[xmlschema.XExtensionType](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XSimpleExtensionType => scalaxb.toXML[xmlschema.XSimpleExtensionType](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XExtensionType => scalaxb.toXML[xmlschema.XExtensionType](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXExtensionTypeFormat = new DefaultXmlschemaXExtensionTypeFormat {}
   trait DefaultXmlschemaXExtensionTypeFormat extends scalaxb.ElemNameParser[xmlschema.XExtensionType] with XmlschemaXTypeDefParticleGroupFormat with XmlschemaXAttrDeclsGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("extensionType")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XExtensionType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XExtensionType] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      opt(parseXTypeDefParticleGroup) ~ 
-      (parseXAttrDeclsGroup) ^^
+      opt(parseXTypeDefParticleGroup(node, scalaxb.ElemName(node) :: stack)) ~ 
+      (parseXAttrDeclsGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 ~ p3 =>
-      xmlschema.XExtensionType(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XExtensionType(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
         p3,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[javax.xml.namespace.QName]((node \ "@base")),
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[javax.xml.namespace.QName]((node \ "@base"), scalaxb.ElemName(node) :: stack),
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1035,27 +845,27 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XExtensionType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.arg1 map { x => toXML[scalaxb.DataRecord[xmlschema.XTypeDefParticleOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, targetNamespace, Some("arg2"), __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.arg1 map { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XTypeDefParticleOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, None, Some("arg2"), __scope, false),
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXComplexContentFormat = new DefaultXmlschemaXComplexContentFormat {}
   trait DefaultXmlschemaXComplexContentFormat extends scalaxb.ElemNameParser[xmlschema.XComplexContent] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XComplexContent] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XComplexContent] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       (((scalaxb.ElemName(targetNamespace, "restriction")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XComplexRestrictionType](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XComplexRestrictionType](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "extension")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExtensionTypable](x))))) ^^
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExtensionTypable](x, scalaxb.ElemName(node) :: stack))))) ^^
       { case p1 ~ p2 =>
-      xmlschema.XComplexContent(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XComplexContent(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@mixed").headOption map { fromXML[Boolean](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@mixed").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1081,28 +891,28 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XComplexContent, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[scalaxb.DataRecord[xmlschema.XComplexContentOption]](__obj.xcomplexcontentoption, targetNamespace, __obj.xcomplexcontentoption.key, __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        Some(__obj.xcomplexcontentoption) map {x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XComplexContentOption]](x, x.namespace, x.key, __scope, false)} get,
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXSimpleRestrictionTypeFormat = new DefaultXmlschemaXSimpleRestrictionTypeFormat {}
   trait DefaultXmlschemaXSimpleRestrictionTypeFormat extends scalaxb.ElemNameParser[xmlschema.XSimpleRestrictionType] with XmlschemaXTypeDefParticleGroupFormat with XmlschemaXSimpleRestrictionModelGroupFormat with XmlschemaXAttrDeclsGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("simpleRestrictionType")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XSimpleRestrictionType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XSimpleRestrictionType] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      opt((parseXTypeDefParticleGroup(true)) ||| 
-      (parseXSimpleRestrictionModelGroup(true))) ~ 
-      (parseXAttrDeclsGroup) ^^
+      opt((parseXTypeDefParticleGroup(node, scalaxb.ElemName(node) :: stack, true)) ||| 
+      (parseXSimpleRestrictionModelGroup(node, scalaxb.ElemName(node) :: stack, true))) ~ 
+      (parseXAttrDeclsGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 ~ p3 =>
-      xmlschema.XSimpleRestrictionType(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XSimpleRestrictionType(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
         p3,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[javax.xml.namespace.QName]((node \ "@base")),
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[javax.xml.namespace.QName]((node \ "@base"), scalaxb.ElemName(node) :: stack),
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1128,28 +938,28 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XSimpleRestrictionType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.xrestrictiontypableoption map { x => toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, targetNamespace, Some("arg2"), __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.xrestrictiontypableoption map { x => scalaxb.toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, None, Some("arg2"), __scope, false),
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXSimpleExtensionTypeFormat = new DefaultXmlschemaXSimpleExtensionTypeFormat {}
   trait DefaultXmlschemaXSimpleExtensionTypeFormat extends scalaxb.ElemNameParser[xmlschema.XSimpleExtensionType] with XmlschemaXTypeDefParticleGroupFormat with XmlschemaXAttrDeclsGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("simpleExtensionType")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XSimpleExtensionType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XSimpleExtensionType] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      opt(parseXTypeDefParticleGroup) ~ 
-      (parseXAttrDeclsGroup) ^^
+      opt(parseXTypeDefParticleGroup(node, scalaxb.ElemName(node) :: stack)) ~ 
+      (parseXAttrDeclsGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 ~ p3 =>
-      xmlschema.XSimpleExtensionType(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XSimpleExtensionType(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
         p3,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[javax.xml.namespace.QName]((node \ "@base")),
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[javax.xml.namespace.QName]((node \ "@base"), scalaxb.ElemName(node) :: stack),
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1175,26 +985,26 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XSimpleExtensionType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.arg1 map { x => toXML[scalaxb.DataRecord[xmlschema.XTypeDefParticleOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, targetNamespace, Some("arg2"), __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.arg1 map { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XTypeDefParticleOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, None, Some("arg2"), __scope, false),
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXSimpleContentFormat = new DefaultXmlschemaXSimpleContentFormat {}
   trait DefaultXmlschemaXSimpleContentFormat extends scalaxb.ElemNameParser[xmlschema.XSimpleContent] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XSimpleContent] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XSimpleContent] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       (((scalaxb.ElemName(targetNamespace, "restriction")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XSimpleRestrictionType](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XSimpleRestrictionType](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "extension")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XSimpleExtensionType](x))))) ^^
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XSimpleExtensionType](x, scalaxb.ElemName(node) :: stack))))) ^^
       { case p1 ~ p2 =>
-      xmlschema.XSimpleContent(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XSimpleContent(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
-        (node \ "@id").headOption map { fromXML[String](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1218,19 +1028,19 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XSimpleContent, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[scalaxb.DataRecord[xmlschema.XSimpleContentOption]](__obj.xsimplecontentoption, targetNamespace, __obj.xsimplecontentoption.key, __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        Some(__obj.xsimplecontentoption) map {x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XSimpleContentOption]](x, x.namespace, x.key, __scope, false)} get,
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXElementFormat = new DefaultXmlschemaXElementFormat {}
   trait DefaultXmlschemaXElementFormat extends scalaxb.XMLFormat[xmlschema.XElement] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XElement] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XElement] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("topLevelElement")) => Right(fromXML[xmlschema.XTopLevelElement](node))
-          case (targetNamespace, Some("localElement")) => Right(fromXML[xmlschema.XLocalElementable](node))
+          case (targetNamespace, Some("topLevelElement")) => Right(scalaxb.fromXML[xmlschema.XTopLevelElement](node, stack))
+          case (targetNamespace, Some("localElement")) => Right(scalaxb.fromXML[xmlschema.XLocalElementable](node, stack))
           case x => Left("Unknown type: " + x)
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
@@ -1238,43 +1048,42 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     
     def writes(__obj: xmlschema.XElement, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XTopLevelElement => toXML[xmlschema.XTopLevelElement](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XLocalElementable => toXML[xmlschema.XLocalElementable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XTopLevelElement => scalaxb.toXML[xmlschema.XTopLevelElement](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XLocalElementable => scalaxb.toXML[xmlschema.XLocalElementable](x, __namespace, __elementLabel, __scope, true)
       case _ => error("Unknown type: " + __obj)
     }
   }
 
-  override def buildXmlschemaXTopLevelElementFormat = new DefaultXmlschemaXTopLevelElementFormat {}
   trait DefaultXmlschemaXTopLevelElementFormat extends scalaxb.ElemNameParser[xmlschema.XTopLevelElement] with XmlschemaXIdentityConstraintGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("topLevelElement")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XTopLevelElement] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XTopLevelElement] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       opt(((scalaxb.ElemName(targetNamespace, "simpleType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalSimpleType](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalSimpleType](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "complexType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalComplexType](x))))) ~ 
-      rep(parseXIdentityConstraintGroup) ^^
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalComplexType](x, scalaxb.ElemName(node) :: stack))))) ~ 
+      rep(parseXIdentityConstraintGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 ~ p3 =>
-      xmlschema.XTopLevelElement(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XTopLevelElement(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
         p3.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@type").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@substitutionGroup").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
-        (node \ "@default").headOption map { fromXML[String](_) },
-        (node \ "@fixed").headOption map { fromXML[String](_) },
-        (node \ "@nillable").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
-        (node \ "@abstract").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
-        (node \ "@final").headOption map { fromXML[String](_) },
-        (node \ "@block").headOption map { fromXML[String](_) },
-        (node \ "@form").headOption map { fromXML[xmlschema.XFormChoice](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@type").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@substitutionGroup").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@default").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@fixed").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@nillable").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@abstract").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@final").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@block").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@form").headOption map { scalaxb.fromXML[xmlschema.XFormChoice](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1324,62 +1133,61 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XTopLevelElement, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.xelementoption map { x => toXML[scalaxb.DataRecord[xmlschema.XElementOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
-        __obj.arg2 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XIdentityConstraintOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.xelementoption map { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XElementOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
+        __obj.arg2 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XIdentityConstraintOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXLocalElementableFormat = new DefaultXmlschemaXLocalElementableFormat {}
   trait DefaultXmlschemaXLocalElementableFormat extends scalaxb.XMLFormat[xmlschema.XLocalElementable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XLocalElementable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XLocalElementable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("narrowMaxMin")) => Right(fromXML[xmlschema.XNarrowMaxMin](node))
-          case _ => Right(fromXML[xmlschema.XLocalElement](node))
+          case (targetNamespace, Some("narrowMaxMin")) => Right(scalaxb.fromXML[xmlschema.XNarrowMaxMin](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XLocalElement](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XLocalElementable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XNarrowMaxMin => toXML[xmlschema.XNarrowMaxMin](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XLocalElement => toXML[xmlschema.XLocalElement](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XNarrowMaxMin => scalaxb.toXML[xmlschema.XNarrowMaxMin](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XLocalElement => scalaxb.toXML[xmlschema.XLocalElement](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXLocalElementFormat = new DefaultXmlschemaXLocalElementFormat {}
   trait DefaultXmlschemaXLocalElementFormat extends scalaxb.ElemNameParser[xmlschema.XLocalElement] with XmlschemaXIdentityConstraintGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("localElement")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XLocalElement] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XLocalElement] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       opt(((scalaxb.ElemName(targetNamespace, "simpleType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalSimpleType](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalSimpleType](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "complexType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalComplexType](x))))) ~ 
-      rep(parseXIdentityConstraintGroup) ^^
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalComplexType](x, scalaxb.ElemName(node) :: stack))))) ~ 
+      rep(parseXIdentityConstraintGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 ~ p3 =>
-      xmlschema.XLocalElement(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XLocalElement(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
         p3.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@type").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@substitutionGroup").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
-        (node \ "@default").headOption map { fromXML[String](_) },
-        (node \ "@fixed").headOption map { fromXML[String](_) },
-        (node \ "@nillable").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
-        (node \ "@abstract").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
-        (node \ "@final").headOption map { fromXML[String](_) },
-        (node \ "@block").headOption map { fromXML[String](_) },
-        (node \ "@form").headOption map { fromXML[xmlschema.XFormChoice](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@type").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@substitutionGroup").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@default").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@fixed").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@nillable").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@abstract").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@final").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@block").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@form").headOption map { scalaxb.fromXML[xmlschema.XFormChoice](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1429,20 +1237,20 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XLocalElement, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.xelementoption map { x => toXML[scalaxb.DataRecord[xmlschema.XElementOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
-        __obj.arg2 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XIdentityConstraintOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.xelementoption map { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XElementOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
+        __obj.arg2 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XIdentityConstraintOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXGroupFormat = new DefaultXmlschemaXGroupFormat {}
   trait DefaultXmlschemaXGroupFormat extends scalaxb.XMLFormat[xmlschema.XGroup] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XGroup] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XGroup] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("realGroup")) => Right(fromXML[xmlschema.XRealGroupable](node))
-          case (targetNamespace, Some("explicitGroup")) => Right(fromXML[xmlschema.XExplicitGroupable](node))
+          case (targetNamespace, Some("realGroup")) => Right(scalaxb.fromXML[xmlschema.XRealGroupable](node, stack))
+          case (targetNamespace, Some("explicitGroup")) => Right(scalaxb.fromXML[xmlschema.XExplicitGroupable](node, stack))
           case x => Left("Unknown type: " + x)
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
@@ -1450,50 +1258,48 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     
     def writes(__obj: xmlschema.XGroup, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XRealGroupable => toXML[xmlschema.XRealGroupable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XExplicitGroupable => toXML[xmlschema.XExplicitGroupable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XRealGroupable => scalaxb.toXML[xmlschema.XRealGroupable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XExplicitGroupable => scalaxb.toXML[xmlschema.XExplicitGroupable](x, __namespace, __elementLabel, __scope, true)
       case _ => error("Unknown type: " + __obj)
     }
   }
 
-  override def buildXmlschemaXRealGroupableFormat = new DefaultXmlschemaXRealGroupableFormat {}
   trait DefaultXmlschemaXRealGroupableFormat extends scalaxb.XMLFormat[xmlschema.XRealGroupable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XRealGroupable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XRealGroupable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("namedGroup")) => Right(fromXML[xmlschema.XNamedGroup](node))
-          case (targetNamespace, Some("groupRef")) => Right(fromXML[xmlschema.XGroupRef](node))
-          case _ => Right(fromXML[xmlschema.XRealGroup](node))
+          case (targetNamespace, Some("namedGroup")) => Right(scalaxb.fromXML[xmlschema.XNamedGroup](node, stack))
+          case (targetNamespace, Some("groupRef")) => Right(scalaxb.fromXML[xmlschema.XGroupRef](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XRealGroup](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XRealGroupable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XNamedGroup => toXML[xmlschema.XNamedGroup](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XGroupRef => toXML[xmlschema.XGroupRef](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XRealGroup => toXML[xmlschema.XRealGroup](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XNamedGroup => scalaxb.toXML[xmlschema.XNamedGroup](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XGroupRef => scalaxb.toXML[xmlschema.XGroupRef](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XRealGroup => scalaxb.toXML[xmlschema.XRealGroup](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXRealGroupFormat = new DefaultXmlschemaXRealGroupFormat {}
   trait DefaultXmlschemaXRealGroupFormat extends scalaxb.ElemNameParser[xmlschema.XRealGroup] with XmlschemaXParticleGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("realGroup")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XRealGroup] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XRealGroup] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      rep(parseXParticleGroup) ^^
+      rep(parseXParticleGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XRealGroup(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XRealGroup(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1525,26 +1331,26 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XRealGroup, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.arg1 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.arg1 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXAllFormat = new DefaultXmlschemaXAllFormat {}
   trait DefaultXmlschemaXAllFormat extends scalaxb.ElemNameParser[xmlschema.XAll] with XmlschemaXParticleGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XAll] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAll] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      rep(parseXParticleGroup) ^^
+      rep(parseXParticleGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XAll(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XAll(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1576,28 +1382,28 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XAll, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.arg1 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.arg1 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXNamedGroupFormat = new DefaultXmlschemaXNamedGroupFormat {}
   trait DefaultXmlschemaXNamedGroupFormat extends scalaxb.ElemNameParser[xmlschema.XNamedGroup] with XmlschemaXParticleGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("namedGroup")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XNamedGroup] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XNamedGroup] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      rep(parseXParticleGroup) ^^
+      rep(parseXParticleGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XNamedGroup(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XNamedGroup(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1629,28 +1435,28 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XNamedGroup, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.arg1 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.arg1 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXGroupRefFormat = new DefaultXmlschemaXGroupRefFormat {}
   trait DefaultXmlschemaXGroupRefFormat extends scalaxb.ElemNameParser[xmlschema.XGroupRef] with XmlschemaXParticleGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("groupRef")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XGroupRef] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XGroupRef] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      rep(parseXParticleGroup) ^^
+      rep(parseXParticleGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XGroupRef(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XGroupRef(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1682,49 +1488,48 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XGroupRef, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.arg1 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.arg1 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXExplicitGroupableFormat = new DefaultXmlschemaXExplicitGroupableFormat {}
   trait DefaultXmlschemaXExplicitGroupableFormat extends scalaxb.XMLFormat[xmlschema.XExplicitGroupable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XExplicitGroupable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XExplicitGroupable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("simpleExplicitGroup")) => Right(fromXML[xmlschema.XSimpleExplicitGroup](node))
-          case (targetNamespace, Some("all")) => Right(fromXML[xmlschema.XAllable](node))
-          case _ => Right(fromXML[xmlschema.XExplicitGroup](node))
+          case (targetNamespace, Some("simpleExplicitGroup")) => Right(scalaxb.fromXML[xmlschema.XSimpleExplicitGroup](node, stack))
+          case (targetNamespace, Some("all")) => Right(scalaxb.fromXML[xmlschema.XAllable](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XExplicitGroup](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XExplicitGroupable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XSimpleExplicitGroup => toXML[xmlschema.XSimpleExplicitGroup](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XAllable => toXML[xmlschema.XAllable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XExplicitGroup => toXML[xmlschema.XExplicitGroup](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XSimpleExplicitGroup => scalaxb.toXML[xmlschema.XSimpleExplicitGroup](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XAllable => scalaxb.toXML[xmlschema.XAllable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XExplicitGroup => scalaxb.toXML[xmlschema.XExplicitGroup](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXExplicitGroupFormat = new DefaultXmlschemaXExplicitGroupFormat {}
   trait DefaultXmlschemaXExplicitGroupFormat extends scalaxb.ElemNameParser[xmlschema.XExplicitGroup] with XmlschemaXParticleGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("explicitGroup")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XExplicitGroup] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XExplicitGroup] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      rep(parseXParticleGroup) ^^
+      rep(parseXParticleGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XExplicitGroup(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XExplicitGroup(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1756,28 +1561,28 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XExplicitGroup, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.arg1 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.arg1 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXSimpleExplicitGroupFormat = new DefaultXmlschemaXSimpleExplicitGroupFormat {}
   trait DefaultXmlschemaXSimpleExplicitGroupFormat extends scalaxb.ElemNameParser[xmlschema.XSimpleExplicitGroup] with XmlschemaXParticleGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("simpleExplicitGroup")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XSimpleExplicitGroup] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XSimpleExplicitGroup] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      rep(parseXParticleGroup) ^^
+      rep(parseXParticleGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XSimpleExplicitGroup(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XSimpleExplicitGroup(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1809,8 +1614,9 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XSimpleExplicitGroup, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.arg1 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.arg1 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
@@ -1818,7 +1624,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXMinOccursFormat extends scalaxb.XMLFormat[xmlschema.XMinOccurs] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XMinOccurs] = Right(xmlschema.XMinOccurs.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XMinOccurs] =
+      Right(xmlschema.XMinOccurs.fromString(seq.text))
     
     def writes(__obj: xmlschema.XMinOccurs, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -1831,7 +1638,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXMaxOccursFormat extends scalaxb.XMLFormat[xmlschema.XMaxOccurs] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XMaxOccurs] = Right(xmlschema.XMaxOccurs.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XMaxOccurs] =
+      Right(xmlschema.XMaxOccurs.fromString(seq.text))
     
     def writes(__obj: xmlschema.XMaxOccurs, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -1840,37 +1648,36 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         scala.xml.Null, __scope, scala.xml.Text(__obj.toString))
   }
 
-  override def buildXmlschemaXNarrowMaxMinFormat = new DefaultXmlschemaXNarrowMaxMinFormat {}
   trait DefaultXmlschemaXNarrowMaxMinFormat extends scalaxb.ElemNameParser[xmlschema.XNarrowMaxMin] with XmlschemaXIdentityConstraintGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("narrowMaxMin")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XNarrowMaxMin] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XNarrowMaxMin] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       opt(((scalaxb.ElemName(targetNamespace, "simpleType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalSimpleType](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalSimpleType](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "complexType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalComplexType](x))))) ~ 
-      rep(parseXIdentityConstraintGroup) ^^
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalComplexType](x, scalaxb.ElemName(node) :: stack))))) ~ 
+      rep(parseXIdentityConstraintGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 ~ p3 =>
-      xmlschema.XNarrowMaxMin(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XNarrowMaxMin(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
         p3.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@type").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@substitutionGroup").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
-        (node \ "@default").headOption map { fromXML[String](_) },
-        (node \ "@fixed").headOption map { fromXML[String](_) },
-        (node \ "@nillable").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
-        (node \ "@abstract").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
-        (node \ "@final").headOption map { fromXML[String](_) },
-        (node \ "@block").headOption map { fromXML[String](_) },
-        (node \ "@form").headOption map { fromXML[xmlschema.XFormChoice](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@type").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@substitutionGroup").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@default").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@fixed").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@nillable").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@abstract").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@final").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@block").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@form").headOption map { scalaxb.fromXML[xmlschema.XFormChoice](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -1920,9 +1727,10 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XNarrowMaxMin, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.xelementoption map { x => toXML[scalaxb.DataRecord[xmlschema.XElementOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
-        __obj.arg2 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XIdentityConstraintOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.xelementoption map { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XElementOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
+        __obj.arg2 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XIdentityConstraintOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
@@ -1930,7 +1738,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXMinOccursTypeFormat extends scalaxb.XMLFormat[xmlschema.XMinOccursType] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XMinOccursType] = Right(xmlschema.XMinOccursType.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XMinOccursType] =
+      Right(xmlschema.XMinOccursType.fromString(seq.text))
     
     def writes(__obj: xmlschema.XMinOccursType, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -1943,7 +1752,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXMaxOccursTypeFormat extends scalaxb.XMLFormat[xmlschema.XMaxOccursType] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XMaxOccursType] = Right(xmlschema.XMaxOccursType.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XMaxOccursType] =
+      Right(xmlschema.XMaxOccursType.fromString(seq.text))
     
     def writes(__obj: xmlschema.XMaxOccursType, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -1952,42 +1762,40 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         scala.xml.Null, __scope, scala.xml.Text(__obj.toString))
   }
 
-  override def buildXmlschemaXAllableFormat = new DefaultXmlschemaXAllableFormat {}
   trait DefaultXmlschemaXAllableFormat extends scalaxb.XMLFormat[xmlschema.XAllable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XAllable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XAllable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("all")) => Right(fromXML[xmlschema.XAll](node))
-          case _ => Right(fromXML[xmlschema.XAllType](node))
+          case (targetNamespace, Some("all")) => Right(scalaxb.fromXML[xmlschema.XAll](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XAllType](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XAllable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XAll => toXML[xmlschema.XAll](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XAllType => toXML[xmlschema.XAllType](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XAll => scalaxb.toXML[xmlschema.XAll](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XAllType => scalaxb.toXML[xmlschema.XAllType](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXAllTypeFormat = new DefaultXmlschemaXAllTypeFormat {}
   trait DefaultXmlschemaXAllTypeFormat extends scalaxb.ElemNameParser[xmlschema.XAllType] with XmlschemaXParticleGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("all")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XAllType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAllType] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      rep(parseXParticleGroup) ^^
+      rep(parseXParticleGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XAllType(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XAllType(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2019,8 +1827,9 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XAllType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.arg1 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.arg1 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XParticleOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
@@ -2028,7 +1837,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXProcessContentsFormat extends scalaxb.XMLFormat[xmlschema.XProcessContents] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XProcessContents] = Right(xmlschema.XProcessContents.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XProcessContents] =
+      Right(xmlschema.XProcessContents.fromString(seq.text))
     
     def writes(__obj: xmlschema.XProcessContents, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -2037,38 +1847,36 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         scala.xml.Null, __scope, scala.xml.Text(__obj.toString))
   }
 
-  override def buildXmlschemaXWildcardableFormat = new DefaultXmlschemaXWildcardableFormat {}
   trait DefaultXmlschemaXWildcardableFormat extends scalaxb.XMLFormat[xmlschema.XWildcardable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XWildcardable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XWildcardable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("any")) => Right(fromXML[xmlschema.XAny](node))
-          case _ => Right(fromXML[xmlschema.XWildcard](node))
+          case (targetNamespace, Some("any")) => Right(scalaxb.fromXML[xmlschema.XAny](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XWildcard](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XWildcardable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XAny => toXML[xmlschema.XAny](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XWildcard => toXML[xmlschema.XWildcard](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XAny => scalaxb.toXML[xmlschema.XAny](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XWildcard => scalaxb.toXML[xmlschema.XWildcard](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXWildcardFormat = new DefaultXmlschemaXWildcardFormat {}
   trait DefaultXmlschemaXWildcardFormat extends scalaxb.ElemNameParser[xmlschema.XWildcard] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("wildcard")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XWildcard] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XWildcard] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XWildcard(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@namespace").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("##any")) },
-        (node \ "@processContents").headOption map { fromXML[xmlschema.XProcessContents](_) } getOrElse { fromXML[xmlschema.XProcessContents](scala.xml.Text("strict")) },
+      xmlschema.XWildcard(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@namespace").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("##any"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@processContents").headOption map { scalaxb.fromXML[xmlschema.XProcessContents](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[xmlschema.XProcessContents](scala.xml.Text("strict"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2096,23 +1904,23 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XWildcard, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXAnyFormat = new DefaultXmlschemaXAnyFormat {}
   trait DefaultXmlschemaXAnyFormat extends scalaxb.ElemNameParser[xmlschema.XAny] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XAny] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAny] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XAny(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@namespace").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("##any")) },
-        (node \ "@processContents").headOption map { fromXML[xmlschema.XProcessContents](_) } getOrElse { fromXML[xmlschema.XProcessContents](scala.xml.Text("strict")) },
-        (node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-        (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) },
+      xmlschema.XAny(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@namespace").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("##any"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@processContents").headOption map { scalaxb.fromXML[xmlschema.XProcessContents](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[xmlschema.XProcessContents](scala.xml.Text("strict"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+        (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2144,18 +1952,18 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XAny, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXAttributeGroupFormat = new DefaultXmlschemaXAttributeGroupFormat {}
   trait DefaultXmlschemaXAttributeGroupFormat extends scalaxb.XMLFormat[xmlschema.XAttributeGroup] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XAttributeGroup] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XAttributeGroup] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("namedAttributeGroup")) => Right(fromXML[xmlschema.XNamedAttributeGroup](node))
-          case (targetNamespace, Some("attributeGroupRef")) => Right(fromXML[xmlschema.XAttributeGroupRef](node))
+          case (targetNamespace, Some("namedAttributeGroup")) => Right(scalaxb.fromXML[xmlschema.XNamedAttributeGroup](node, stack))
+          case (targetNamespace, Some("attributeGroupRef")) => Right(scalaxb.fromXML[xmlschema.XAttributeGroupRef](node, stack))
           case x => Left("Unknown type: " + x)
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
@@ -2163,27 +1971,26 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     
     def writes(__obj: xmlschema.XAttributeGroup, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XNamedAttributeGroup => toXML[xmlschema.XNamedAttributeGroup](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XAttributeGroupRef => toXML[xmlschema.XAttributeGroupRef](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XNamedAttributeGroup => scalaxb.toXML[xmlschema.XNamedAttributeGroup](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XAttributeGroupRef => scalaxb.toXML[xmlschema.XAttributeGroupRef](x, __namespace, __elementLabel, __scope, true)
       case _ => error("Unknown type: " + __obj)
     }
   }
 
-  override def buildXmlschemaXNamedAttributeGroupFormat = new DefaultXmlschemaXNamedAttributeGroupFormat {}
   trait DefaultXmlschemaXNamedAttributeGroupFormat extends scalaxb.ElemNameParser[xmlschema.XNamedAttributeGroup] with XmlschemaXAttrDeclsGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("namedAttributeGroup")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XNamedAttributeGroup] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XNamedAttributeGroup] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      (parseXAttrDeclsGroup) ^^
+      (parseXAttrDeclsGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XNamedAttributeGroup(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XNamedAttributeGroup(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2211,26 +2018,26 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XNamedAttributeGroup, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XAttrDeclsSequence](__obj.arg1, targetNamespace, Some("arg1"), __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XAttrDeclsSequence](__obj.arg1, None, Some("arg1"), __scope, false),
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXAttributeGroupRefFormat = new DefaultXmlschemaXAttributeGroupRefFormat {}
   trait DefaultXmlschemaXAttributeGroupRefFormat extends scalaxb.ElemNameParser[xmlschema.XAttributeGroupRef] with XmlschemaXAttrDeclsGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("attributeGroupRef")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XAttributeGroupRef] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAttributeGroupRef] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      (parseXAttrDeclsGroup) ^^
+      (parseXAttrDeclsGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XAttributeGroupRef(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XAttributeGroupRef(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
-        (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2258,21 +2065,21 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XAttributeGroupRef, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XAttrDeclsSequence](__obj.arg1, targetNamespace, Some("arg1"), __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XAttrDeclsSequence](__obj.arg1, None, Some("arg1"), __scope, false),
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXIncludeFormat = new DefaultXmlschemaXIncludeFormat {}
   trait DefaultXmlschemaXIncludeFormat extends scalaxb.ElemNameParser[xmlschema.XInclude] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XInclude] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XInclude] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XInclude(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[java.net.URI]((node \ "@schemaLocation")),
+      xmlschema.XInclude(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[java.net.URI]((node \ "@schemaLocation"), scalaxb.ElemName(node) :: stack),
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2298,22 +2105,22 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XInclude, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXRedefineFormat = new DefaultXmlschemaXRedefineFormat {}
   trait DefaultXmlschemaXRedefineFormat extends scalaxb.ElemNameParser[xmlschema.XRedefine] with XmlschemaXRedefinableGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XRedefine] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XRedefine] =
       rep(((scalaxb.ElemName(targetNamespace, "annotation")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAnnotation](x)))) ||| 
-      (parseXRedefinableGroup(true))) ^^
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAnnotation](x, scalaxb.ElemName(node) :: stack)))) ||| 
+      (parseXRedefinableGroup(node, scalaxb.ElemName(node) :: stack, true))) ^^
       { case p1 =>
       xmlschema.XRedefine(p1.toSeq,
-        fromXML[java.net.URI]((node \ "@schemaLocation")),
-        (node \ "@id").headOption map { fromXML[String](_) },
+        scalaxb.fromXML[java.net.URI]((node \ "@schemaLocation"), scalaxb.ElemName(node) :: stack),
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2339,21 +2146,21 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XRedefine, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.xredefineoption flatMap { x => toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.xredefineoption flatMap { x => scalaxb.toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXImportFormat = new DefaultXmlschemaXImportFormat {}
   trait DefaultXmlschemaXImportFormat extends scalaxb.ElemNameParser[xmlschema.XImport] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XImport] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XImport] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XImport(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@namespace").headOption map { fromXML[java.net.URI](_) },
-        (node \ "@schemaLocation").headOption map { fromXML[java.net.URI](_) },
+      xmlschema.XImport(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@namespace").headOption map { scalaxb.fromXML[java.net.URI](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@schemaLocation").headOption map { scalaxb.fromXML[java.net.URI](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2381,20 +2188,20 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XImport, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXSelectorFormat = new DefaultXmlschemaXSelectorFormat {}
   trait DefaultXmlschemaXSelectorFormat extends scalaxb.ElemNameParser[xmlschema.XSelector] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XSelector] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XSelector] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XSelector(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@xpath")),
+      xmlschema.XSelector(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@xpath"), scalaxb.ElemName(node) :: stack),
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2420,20 +2227,20 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XSelector, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXFieldFormat = new DefaultXmlschemaXFieldFormat {}
   trait DefaultXmlschemaXFieldFormat extends scalaxb.ElemNameParser[xmlschema.XField] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XField] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XField] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XField(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@xpath")),
+      xmlschema.XField(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@xpath"), scalaxb.ElemName(node) :: stack),
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2459,45 +2266,44 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XField, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXKeybasableFormat = new DefaultXmlschemaXKeybasableFormat {}
   trait DefaultXmlschemaXKeybasableFormat extends scalaxb.XMLFormat[xmlschema.XKeybasable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XKeybasable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XKeybasable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("keyref")) => Right(fromXML[xmlschema.XKeyref](node))
-          case _ => Right(fromXML[xmlschema.XKeybase](node))
+          case (targetNamespace, Some("keyref")) => Right(scalaxb.fromXML[xmlschema.XKeyref](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XKeybase](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XKeybasable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XKeyref => toXML[xmlschema.XKeyref](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XKeybase => toXML[xmlschema.XKeybase](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XKeyref => scalaxb.toXML[xmlschema.XKeyref](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XKeybase => scalaxb.toXML[xmlschema.XKeybase](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXKeybaseFormat = new DefaultXmlschemaXKeybaseFormat {}
   trait DefaultXmlschemaXKeybaseFormat extends scalaxb.ElemNameParser[xmlschema.XKeybase] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("keybase")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XKeybase] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XKeybase] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       (scalaxb.ElemName(targetNamespace, "selector")) ~ 
       rep(scalaxb.ElemName(targetNamespace, "field")) ^^
       { case p1 ~ p2 ~ p3 =>
-      xmlschema.XKeybase(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        fromXML[xmlschema.XSelector](p2),
-        p3.toSeq map { fromXML[xmlschema.XField](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@name")),
+      xmlschema.XKeybase(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[xmlschema.XSelector](p2, scalaxb.ElemName(node) :: stack),
+        p3.toSeq map { scalaxb.fromXML[xmlschema.XField](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@name"), scalaxb.ElemName(node) :: stack),
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2523,27 +2329,27 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XKeybase, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XSelector](__obj.selector, targetNamespace, Some("selector"), __scope, false),
-        __obj.field flatMap { toXML[xmlschema.XField](_, targetNamespace, Some("field"), __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XSelector](__obj.selector, targetNamespace, Some("selector"), __scope, false),
+        __obj.field flatMap { scalaxb.toXML[xmlschema.XField](_, targetNamespace, Some("field"), __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXKeyrefFormat = new DefaultXmlschemaXKeyrefFormat {}
   trait DefaultXmlschemaXKeyrefFormat extends scalaxb.ElemNameParser[xmlschema.XKeyref] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XKeyref] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XKeyref] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       (scalaxb.ElemName(targetNamespace, "selector")) ~ 
       rep(scalaxb.ElemName(targetNamespace, "field")) ^^
       { case p1 ~ p2 ~ p3 =>
-      xmlschema.XKeyref(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        fromXML[xmlschema.XSelector](p2),
-        p3.toSeq map { fromXML[xmlschema.XField](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@name")),
-        fromXML[javax.xml.namespace.QName]((node \ "@refer")),
+      xmlschema.XKeyref(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[xmlschema.XSelector](p2, scalaxb.ElemName(node) :: stack),
+        p3.toSeq map { scalaxb.fromXML[xmlschema.XField](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@name"), scalaxb.ElemName(node) :: stack),
+        scalaxb.fromXML[javax.xml.namespace.QName]((node \ "@refer"), scalaxb.ElemName(node) :: stack),
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2571,24 +2377,24 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XKeyref, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XSelector](__obj.selector, targetNamespace, Some("selector"), __scope, false),
-        __obj.field flatMap { toXML[xmlschema.XField](_, targetNamespace, Some("field"), __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XSelector](__obj.selector, targetNamespace, Some("selector"), __scope, false),
+        __obj.field flatMap { scalaxb.toXML[xmlschema.XField](_, targetNamespace, Some("field"), __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXNotationFormat = new DefaultXmlschemaXNotationFormat {}
   trait DefaultXmlschemaXNotationFormat extends scalaxb.ElemNameParser[xmlschema.XNotation] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XNotation] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XNotation] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XNotation(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@name")),
-        (node \ "@public").headOption map { fromXML[String](_) },
-        (node \ "@system").headOption map { fromXML[java.net.URI](_) },
+      xmlschema.XNotation(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@name"), scalaxb.ElemName(node) :: stack),
+        (node \ "@public").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@system").headOption map { scalaxb.fromXML[java.net.URI](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2618,19 +2424,19 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XNotation, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXAppinfoFormat = new DefaultXmlschemaXAppinfoFormat {}
   trait DefaultXmlschemaXAppinfoFormat extends scalaxb.ElemNameParser[xmlschema.XAppinfo] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def isMixed: Boolean = true
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XAppinfo] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAppinfo] =
       optTextRecord ~ 
-      rep(((any ^^ (fromXML[scalaxb.DataRecord[Any]](_))) ~ 
+      rep(((any(List(Some()).contains(_)) ^^ (scalaxb.fromXML[scalaxb.DataRecord[Any]](_, scalaxb.ElemName(node) :: stack))) ~ 
       optTextRecord) ^^ 
       { case p1 ~ p2 => Seq.concat(Seq(p1), p2.toList) }) ~ 
       optTextRecord ^^
@@ -2638,7 +2444,7 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
       xmlschema.XAppinfo(Seq.concat(p1.toList,
         p2.flatten,
         p3.toList),
-        (node \ "@source").headOption map { fromXML[java.net.URI](_) },
+        (node \ "@source").headOption map { scalaxb.fromXML[java.net.URI](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2662,19 +2468,18 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XAppinfo, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      __obj.mixed.toSeq flatMap { x => toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) }
+      __obj.mixed.toSeq flatMap { x => scalaxb.toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) }
 
   }
 
-  override def buildXmlschemaXDocumentationFormat = new DefaultXmlschemaXDocumentationFormat {}
   trait DefaultXmlschemaXDocumentationFormat extends scalaxb.ElemNameParser[xmlschema.XDocumentation] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def isMixed: Boolean = true
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XDocumentation] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XDocumentation] =
       optTextRecord ~ 
-      rep(((any ^^ (fromXML[scalaxb.DataRecord[Any]](_))) ~ 
+      rep(((any(List(Some()).contains(_)) ^^ (scalaxb.fromXML[scalaxb.DataRecord[Any]](_, scalaxb.ElemName(node) :: stack))) ~ 
       optTextRecord) ^^ 
       { case p1 ~ p2 => Seq.concat(Seq(p1), p2.toList) }) ~ 
       optTextRecord ^^
@@ -2682,8 +2487,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
       xmlschema.XDocumentation(Seq.concat(p1.toList,
         p2.flatten,
         p3.toList),
-        (node \ "@source").headOption map { fromXML[java.net.URI](_) },
-        (node \ "@{http://www.w3.org/XML/1998/namespace}lang").headOption map { fromXML[String](_) },
+        (node \ "@source").headOption map { scalaxb.fromXML[java.net.URI](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@{http://www.w3.org/XML/1998/namespace}lang").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2710,22 +2515,21 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XDocumentation, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      __obj.mixed.toSeq flatMap { x => toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) }
+      __obj.mixed.toSeq flatMap { x => scalaxb.toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) }
 
   }
 
-  override def buildXmlschemaXAnnotationFormat = new DefaultXmlschemaXAnnotationFormat {}
   trait DefaultXmlschemaXAnnotationFormat extends scalaxb.ElemNameParser[xmlschema.XAnnotation] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XAnnotation] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAnnotation] =
       rep(((scalaxb.ElemName(targetNamespace, "appinfo")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAppinfo](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAppinfo](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "documentation")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XDocumentation](x))))) ^^
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XDocumentation](x, scalaxb.ElemName(node) :: stack))))) ^^
       { case p1 =>
       xmlschema.XAnnotation(p1.toSeq,
-        (node \ "@id").headOption map { fromXML[String](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2749,11 +2553,11 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XAnnotation, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.xannotationoption flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XAnnotationOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.xannotationoption flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XAnnotationOption]](x, x.namespace, x.key, __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXAnyTypeFormat = new DefaultXmlschemaXAnyTypeFormat {}
   trait DefaultXmlschemaXAnyTypeFormat extends scalaxb.ElemNameParser[xmlschema.XAnyType] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
@@ -2761,9 +2565,9 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
 
     override def isMixed: Boolean = true
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XAnyType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAnyType] =
       optTextRecord ~ 
-      rep(((any ^^ (fromXML[scalaxb.DataRecord[Any]](_))) ~ 
+      rep(((any(List(Some()).contains(_)) ^^ (scalaxb.fromXML[scalaxb.DataRecord[Any]](_, scalaxb.ElemName(node) :: stack))) ~ 
       optTextRecord) ^^ 
       { case p1 ~ p2 => Seq.concat(Seq(p1), p2.toList) }) ~ 
       optTextRecord ^^
@@ -2793,7 +2597,7 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XAnyType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      __obj.mixed.toSeq flatMap { x => toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) }
+      __obj.mixed.toSeq flatMap { x => scalaxb.toXML[scalaxb.DataRecord[Any]](x, x.namespace, x.key, __scope, false) }
 
   }
 
@@ -2801,7 +2605,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXDerivationControlFormat extends scalaxb.XMLFormat[xmlschema.XDerivationControl] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XDerivationControl] = Right(xmlschema.XDerivationControl.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XDerivationControl] =
+      Right(xmlschema.XDerivationControl.fromString(seq.text))
     
     def writes(__obj: xmlschema.XDerivationControl, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -2810,14 +2615,13 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         scala.xml.Null, __scope, scala.xml.Text(__obj.toString))
   }
 
-  override def buildXmlschemaXSimpleTypeFormat = new DefaultXmlschemaXSimpleTypeFormat {}
   trait DefaultXmlschemaXSimpleTypeFormat extends scalaxb.XMLFormat[xmlschema.XSimpleType] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XSimpleType] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XSimpleType] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("topLevelSimpleType")) => Right(fromXML[xmlschema.XTopLevelSimpleType](node))
-          case (targetNamespace, Some("localSimpleType")) => Right(fromXML[xmlschema.XLocalSimpleType](node))
+          case (targetNamespace, Some("topLevelSimpleType")) => Right(scalaxb.fromXML[xmlschema.XTopLevelSimpleType](node, stack))
+          case (targetNamespace, Some("localSimpleType")) => Right(scalaxb.fromXML[xmlschema.XLocalSimpleType](node, stack))
           case x => Left("Unknown type: " + x)
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
@@ -2825,27 +2629,26 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     
     def writes(__obj: xmlschema.XSimpleType, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XTopLevelSimpleType => toXML[xmlschema.XTopLevelSimpleType](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XLocalSimpleType => toXML[xmlschema.XLocalSimpleType](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XTopLevelSimpleType => scalaxb.toXML[xmlschema.XTopLevelSimpleType](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XLocalSimpleType => scalaxb.toXML[xmlschema.XLocalSimpleType](x, __namespace, __elementLabel, __scope, true)
       case _ => error("Unknown type: " + __obj)
     }
   }
 
-  override def buildXmlschemaXTopLevelSimpleTypeFormat = new DefaultXmlschemaXTopLevelSimpleTypeFormat {}
   trait DefaultXmlschemaXTopLevelSimpleTypeFormat extends scalaxb.ElemNameParser[xmlschema.XTopLevelSimpleType] with XmlschemaXSimpleDerivationGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("topLevelSimpleType")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XTopLevelSimpleType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XTopLevelSimpleType] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      (parseXSimpleDerivationGroup) ^^
+      (parseXSimpleDerivationGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XTopLevelSimpleType(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XTopLevelSimpleType(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@final").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@final").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2873,26 +2676,26 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XTopLevelSimpleType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[scalaxb.DataRecord[xmlschema.XSimpleDerivationOption]](__obj.arg1, targetNamespace, __obj.arg1.key, __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        Some(__obj.arg1) map {x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XSimpleDerivationOption]](x, x.namespace, x.key, __scope, false)} get,
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXLocalSimpleTypeFormat = new DefaultXmlschemaXLocalSimpleTypeFormat {}
   trait DefaultXmlschemaXLocalSimpleTypeFormat extends scalaxb.ElemNameParser[xmlschema.XLocalSimpleType] with XmlschemaXSimpleDerivationGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("localSimpleType")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XLocalSimpleType] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XLocalSimpleType] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      (parseXSimpleDerivationGroup) ^^
+      (parseXSimpleDerivationGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XLocalSimpleType(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XLocalSimpleType(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@final").headOption map { fromXML[String](_) },
-        (node \ "@name").headOption map { fromXML[String](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@final").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2920,23 +2723,23 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XLocalSimpleType, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[scalaxb.DataRecord[xmlschema.XSimpleDerivationOption]](__obj.arg1, targetNamespace, __obj.arg1.key, __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        Some(__obj.arg1) map {x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XSimpleDerivationOption]](x, x.namespace, x.key, __scope, false)} get,
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXRestrictionFormat = new DefaultXmlschemaXRestrictionFormat {}
   trait DefaultXmlschemaXRestrictionFormat extends scalaxb.ElemNameParser[xmlschema.XRestriction] with XmlschemaXSimpleRestrictionModelGroupFormat {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XRestriction] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XRestriction] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
-      (parseXSimpleRestrictionModelGroup) ^^
+      (parseXSimpleRestrictionModelGroup(node, scalaxb.ElemName(node) :: stack)) ^^
       { case p1 ~ p2 =>
-      xmlschema.XRestriction(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      xmlschema.XRestriction(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2,
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@base").headOption map { fromXML[javax.xml.namespace.QName](_) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@base").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -2962,23 +2765,23 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XRestriction, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XSimpleRestrictionModelSequence](__obj.arg1, targetNamespace, Some("arg1"), __scope, false))
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XSimpleRestrictionModelSequence](__obj.arg1, None, Some("arg1"), __scope, false),
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXListFormat = new DefaultXmlschemaXListFormat {}
   trait DefaultXmlschemaXListFormat extends scalaxb.ElemNameParser[xmlschema.XList] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XList] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XList] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       opt(scalaxb.ElemName(targetNamespace, "simpleType")) ^^
       { case p1 ~ p2 =>
-      xmlschema.XList(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        p2.headOption map { fromXML[xmlschema.XLocalSimpleType](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@itemType").headOption map { fromXML[javax.xml.namespace.QName](_) },
+      xmlschema.XList(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        p2.headOption map { scalaxb.fromXML[xmlschema.XLocalSimpleType](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@itemType").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -3004,23 +2807,23 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XList, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.simpleType map { toXML[xmlschema.XLocalSimpleType](_, None, Some("simpleType"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.simpleType map { scalaxb.toXML[xmlschema.XLocalSimpleType](_, targetNamespace, Some("simpleType"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXUnionFormat = new DefaultXmlschemaXUnionFormat {}
   trait DefaultXmlschemaXUnionFormat extends scalaxb.ElemNameParser[xmlschema.XUnion] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XUnion] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XUnion] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       rep(scalaxb.ElemName(targetNamespace, "simpleType")) ^^
       { case p1 ~ p2 =>
-      xmlschema.XUnion(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        p2.toSeq map { fromXML[xmlschema.XLocalSimpleType](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        (node \ "@memberTypes").headOption map { fromXML[Seq[javax.xml.namespace.QName]](_) },
+      xmlschema.XUnion(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        p2.toSeq map { scalaxb.fromXML[xmlschema.XLocalSimpleType](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@memberTypes").headOption map { scalaxb.fromXML[Seq[javax.xml.namespace.QName]](_, scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -3046,47 +2849,46 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XUnion, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.simpleType flatMap { toXML[xmlschema.XLocalSimpleType](_, None, Some("simpleType"), __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.simpleType flatMap { scalaxb.toXML[xmlschema.XLocalSimpleType](_, targetNamespace, Some("simpleType"), __scope, false) },
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXFacetableFormat = new DefaultXmlschemaXFacetableFormat {}
   trait DefaultXmlschemaXFacetableFormat extends scalaxb.XMLFormat[xmlschema.XFacetable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XFacetable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XFacetable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("noFixedFacet")) => Right(fromXML[xmlschema.XNoFixedFacetable](node))
-          case (targetNamespace, Some("numFacet")) => Right(fromXML[xmlschema.XNumFacetable](node))
-          case (targetNamespace, Some("whiteSpace")) => Right(fromXML[xmlschema.XWhiteSpace](node))
-          case _ => Right(fromXML[xmlschema.XFacet](node))
+          case (targetNamespace, Some("noFixedFacet")) => Right(scalaxb.fromXML[xmlschema.XNoFixedFacetable](node, stack))
+          case (targetNamespace, Some("numFacet")) => Right(scalaxb.fromXML[xmlschema.XNumFacetable](node, stack))
+          case (targetNamespace, Some("whiteSpace")) => Right(scalaxb.fromXML[xmlschema.XWhiteSpace](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XFacet](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XFacetable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XNoFixedFacetable => toXML[xmlschema.XNoFixedFacetable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XNumFacetable => toXML[xmlschema.XNumFacetable](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XWhiteSpace => toXML[xmlschema.XWhiteSpace](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XFacet => toXML[xmlschema.XFacet](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XNoFixedFacetable => scalaxb.toXML[xmlschema.XNoFixedFacetable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XNumFacetable => scalaxb.toXML[xmlschema.XNumFacetable](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XWhiteSpace => scalaxb.toXML[xmlschema.XWhiteSpace](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XFacet => scalaxb.toXML[xmlschema.XFacet](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXFacetFormat = new DefaultXmlschemaXFacetFormat {}
   trait DefaultXmlschemaXFacetFormat extends scalaxb.ElemNameParser[xmlschema.XFacet] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("facet")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XFacet] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XFacet] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XFacet(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@value")),
-        (node \ "@fixed").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
+      xmlschema.XFacet(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@value"), scalaxb.ElemName(node) :: stack),
+        (node \ "@fixed").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -3114,42 +2916,41 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XFacet, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXNoFixedFacetableFormat = new DefaultXmlschemaXNoFixedFacetableFormat {}
   trait DefaultXmlschemaXNoFixedFacetableFormat extends scalaxb.XMLFormat[xmlschema.XNoFixedFacetable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XNoFixedFacetable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XNoFixedFacetable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("pattern")) => Right(fromXML[xmlschema.XPattern](node))
-          case _ => Right(fromXML[xmlschema.XNoFixedFacet](node))
+          case (targetNamespace, Some("pattern")) => Right(scalaxb.fromXML[xmlschema.XPattern](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XNoFixedFacet](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XNoFixedFacetable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XPattern => toXML[xmlschema.XPattern](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XNoFixedFacet => toXML[xmlschema.XNoFixedFacet](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XPattern => scalaxb.toXML[xmlschema.XPattern](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XNoFixedFacet => scalaxb.toXML[xmlschema.XNoFixedFacet](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXNoFixedFacetFormat = new DefaultXmlschemaXNoFixedFacetFormat {}
   trait DefaultXmlschemaXNoFixedFacetFormat extends scalaxb.ElemNameParser[xmlschema.XNoFixedFacet] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("noFixedFacet")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XNoFixedFacet] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XNoFixedFacet] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XNoFixedFacet(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@value")),
-        (node \ "@fixed").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
+      xmlschema.XNoFixedFacet(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@value"), scalaxb.ElemName(node) :: stack),
+        (node \ "@fixed").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -3177,42 +2978,41 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XNoFixedFacet, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXNumFacetableFormat = new DefaultXmlschemaXNumFacetableFormat {}
   trait DefaultXmlschemaXNumFacetableFormat extends scalaxb.XMLFormat[xmlschema.XNumFacetable] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XNumFacetable] = seq match {
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XNumFacetable] = seq match {
       case node: scala.xml.Node =>     
         scalaxb.Helper.instanceType(node) match {
-          case (targetNamespace, Some("totalDigits")) => Right(fromXML[xmlschema.XTotalDigits](node))
-          case _ => Right(fromXML[xmlschema.XNumFacet](node))
+          case (targetNamespace, Some("totalDigits")) => Right(scalaxb.fromXML[xmlschema.XTotalDigits](node, stack))
+          case _ => Right(scalaxb.fromXML[xmlschema.XNumFacet](node, stack))
         }
       case _ => Left("reads failed: seq must be scala.xml.Node")  
     }
     
     def writes(__obj: xmlschema.XNumFacetable, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq = __obj match {
-      case x: xmlschema.XTotalDigits => toXML[xmlschema.XTotalDigits](x, __namespace, __elementLabel, __scope, true)
-      case x: xmlschema.XNumFacet => toXML[xmlschema.XNumFacet](x, __namespace, __elementLabel, __scope, false)
+      case x: xmlschema.XTotalDigits => scalaxb.toXML[xmlschema.XTotalDigits](x, __namespace, __elementLabel, __scope, true)
+      case x: xmlschema.XNumFacet => scalaxb.toXML[xmlschema.XNumFacet](x, __namespace, __elementLabel, __scope, false)
     }
   }
 
-  override def buildXmlschemaXNumFacetFormat = new DefaultXmlschemaXNumFacetFormat {}
   trait DefaultXmlschemaXNumFacetFormat extends scalaxb.ElemNameParser[xmlschema.XNumFacet] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
     override def typeName: Option[String] = Some("numFacet")
 
-    def parser(node: scala.xml.Node): Parser[xmlschema.XNumFacet] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XNumFacet] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XNumFacet(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@value")),
-        (node \ "@fixed").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
+      xmlschema.XNumFacet(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@value"), scalaxb.ElemName(node) :: stack),
+        (node \ "@fixed").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -3240,21 +3040,21 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XNumFacet, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXTotalDigitsFormat = new DefaultXmlschemaXTotalDigitsFormat {}
   trait DefaultXmlschemaXTotalDigitsFormat extends scalaxb.ElemNameParser[xmlschema.XTotalDigits] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XTotalDigits] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XTotalDigits] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XTotalDigits(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@value")),
-        (node \ "@fixed").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
+      xmlschema.XTotalDigits(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@value"), scalaxb.ElemName(node) :: stack),
+        (node \ "@fixed").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -3282,7 +3082,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XTotalDigits, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
@@ -3290,7 +3091,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait DefaultXmlschemaXValueFormat extends scalaxb.XMLFormat[xmlschema.XValue] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XValue] = Right(xmlschema.XValue.fromString(seq.text))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XValue] =
+      Right(xmlschema.XValue.fromString(seq.text))
     
     def writes(__obj: xmlschema.XValue, __namespace: Option[String], __elementLabel: Option[String],
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
@@ -3299,17 +3101,16 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         scala.xml.Null, __scope, scala.xml.Text(__obj.toString))
   }
 
-  override def buildXmlschemaXWhiteSpaceFormat = new DefaultXmlschemaXWhiteSpaceFormat {}
   trait DefaultXmlschemaXWhiteSpaceFormat extends scalaxb.ElemNameParser[xmlschema.XWhiteSpace] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XWhiteSpace] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XWhiteSpace] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XWhiteSpace(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@value")),
-        (node \ "@fixed").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
+      xmlschema.XWhiteSpace(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@value"), scalaxb.ElemName(node) :: stack),
+        (node \ "@fixed").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -3337,21 +3138,21 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XWhiteSpace, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
-  override def buildXmlschemaXPatternFormat = new DefaultXmlschemaXPatternFormat {}
   trait DefaultXmlschemaXPatternFormat extends scalaxb.ElemNameParser[xmlschema.XPattern] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parser(node: scala.xml.Node): Parser[xmlschema.XPattern] =
+    def parser(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XPattern] =
       opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^
       { case p1 =>
-      xmlschema.XPattern(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
-        (node \ "@id").headOption map { fromXML[String](_) },
-        fromXML[String]((node \ "@value")),
-        (node \ "@fixed").headOption map { fromXML[Boolean](_) } getOrElse { fromXML[Boolean](scala.xml.Text("false")) },
+      xmlschema.XPattern(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
+        (node \ "@id").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+        scalaxb.fromXML[String]((node \ "@value"), scalaxb.ElemName(node) :: stack),
+        (node \ "@fixed").headOption map { scalaxb.fromXML[Boolean](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[Boolean](scala.xml.Text("false"), scalaxb.ElemName(node) :: stack) },
         scala.collection.immutable.ListMap((node match {
           case elem: scala.xml.Elem =>
             elem.attributes.toList flatMap {
@@ -3379,7 +3180,8 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
 
     def writesChildNodes(__obj: xmlschema.XPattern, __scope: scala.xml.NamespaceBinding): Seq[scala.xml.Node] =
-      (__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[Map[String, scalaxb.DataRecord[Any]]](__obj.attributes, targetNamespace, Some("attributes"), __scope, false))
 
   }
 
@@ -3387,23 +3189,23 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXSimpleRestrictionModelGroupFormat extends XmlschemaXFacetsGroupFormat {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXSimpleRestrictionModelGroup: Parser[xmlschema.XSimpleRestrictionModelSequence] =
+    def parseXSimpleRestrictionModelGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XSimpleRestrictionModelSequence] =
       ((opt(scalaxb.ElemName(targetNamespace, "simpleType")) ~ 
-      rep(parseXFacetsGroup)) ^^ 
-        { case p1 ~ p2 => xmlschema.XSimpleRestrictionModelSequence(p1.headOption map { fromXML[xmlschema.XLocalSimpleType](_) },
+      rep(parseXFacetsGroup(node, scalaxb.ElemName(node) :: stack))) ^^ 
+        { case p1 ~ p2 => xmlschema.XSimpleRestrictionModelSequence(p1.headOption map { scalaxb.fromXML[xmlschema.XLocalSimpleType](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq) })
   
-    def parseXSimpleRestrictionModelGroup(wrap: Boolean): Parser[scalaxb.DataRecord[Any]] =
+    def parseXSimpleRestrictionModelGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[Any]] =
       ((opt(scalaxb.ElemName(targetNamespace, "simpleType")) ~ 
-      rep(parseXFacetsGroup)) ^^ 
-        { case p1 ~ p2 => scalaxb.DataRecord(xmlschema.XSimpleRestrictionModelSequence(p1.headOption map { fromXML[xmlschema.XLocalSimpleType](_) },
+      rep(parseXFacetsGroup(node, scalaxb.ElemName(node) :: stack))) ^^ 
+        { case p1 ~ p2 => scalaxb.DataRecord(xmlschema.XSimpleRestrictionModelSequence(p1.headOption map { scalaxb.fromXML[xmlschema.XLocalSimpleType](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq)) })
     
-    def parsemixedXSimpleRestrictionModelGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXSimpleRestrictionModelGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       (((opt(scalaxb.ElemName(targetNamespace, "simpleType")) ^^ 
-      (_ map { x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalSimpleType](x)) })) ~ 
+      (_ map { x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalSimpleType](x, scalaxb.ElemName(node) :: stack)) })) ~ 
       optTextRecord ~ 
-      rep(parsemixedXFacetsGroup) ~ 
+      rep(parsemixedXFacetsGroup(node, scalaxb.ElemName(node) :: stack)) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 ~ p3 ~ p4 => Seq.concat(p1.toList,
         p2.toList,
@@ -3411,16 +3213,15 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         p4.toList) })
   }
 
-  override def buildXmlschemaXSimpleRestrictionModelSequenceFormat = new DefaultXmlschemaXSimpleRestrictionModelSequenceFormat {} 
   trait DefaultXmlschemaXSimpleRestrictionModelSequenceFormat extends scalaxb.XMLFormat[xmlschema.XSimpleRestrictionModelSequence] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XSimpleRestrictionModelSequence] = Left("don't call me.")
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XSimpleRestrictionModelSequence] = Left("don't call me.")
     
     def writes(__obj: xmlschema.XSimpleRestrictionModelSequence, __namespace: Option[String], __elementLabel: Option[String], 
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
-      Seq.concat(__obj.simpleType map { toXML[xmlschema.XLocalSimpleType](_, None, Some("simpleType"), __scope, false) } getOrElse {Nil},
-        __obj.arg2 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XFacetsOption]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.simpleType map { scalaxb.toXML[xmlschema.XLocalSimpleType](_, targetNamespace, Some("simpleType"), __scope, false) } getOrElse {Nil},
+        __obj.arg2 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XFacetsOption]](x, x.namespace, x.key, __scope, false) })
 
 
   }
@@ -3435,116 +3236,116 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXFacetsGroupFormat extends scalaxb.AnyElemNameParser {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXFacetsGroup: Parser[scalaxb.DataRecord[xmlschema.XFacetsOption]] =
+    def parseXFacetsGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[scalaxb.DataRecord[xmlschema.XFacetsOption]] =
       (((scalaxb.ElemName(targetNamespace, "minExclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "minInclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "maxExclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "maxInclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "totalDigits")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTotalDigits](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTotalDigits](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "fractionDigits")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "length")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "minLength")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "maxLength")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "enumeration")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNoFixedFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNoFixedFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "whiteSpace")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XWhiteSpace](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XWhiteSpace](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "pattern")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XPattern](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XPattern](x, scalaxb.ElemName(node) :: stack)))))
   
-    def parseXFacetsGroup(wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XFacetsOption]] =
+    def parseXFacetsGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XFacetsOption]] =
       (((scalaxb.ElemName(targetNamespace, "minExclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "minInclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "maxExclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "maxInclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "totalDigits")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTotalDigits](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTotalDigits](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "fractionDigits")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "length")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "minLength")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "maxLength")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "enumeration")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNoFixedFacetable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNoFixedFacetable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "whiteSpace")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XWhiteSpace](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XWhiteSpace](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "pattern")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XPattern](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XPattern](x, scalaxb.ElemName(node) :: stack)))))
     
-    def parsemixedXFacetsGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXFacetsGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       (((((scalaxb.ElemName(targetNamespace, "minExclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "minInclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "maxExclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "maxInclusive")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XFacetable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XFacetable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "totalDigits")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTotalDigits](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTotalDigits](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "fractionDigits")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "length")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "minLength")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "maxLength")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNumFacetable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNumFacetable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "enumeration")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNoFixedFacetable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNoFixedFacetable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "whiteSpace")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XWhiteSpace](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XWhiteSpace](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "pattern")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XPattern](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XPattern](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }))
@@ -3554,35 +3355,35 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXSimpleDerivationGroupFormat extends scalaxb.AnyElemNameParser {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXSimpleDerivationGroup: Parser[scalaxb.DataRecord[xmlschema.XSimpleDerivationOption]] =
+    def parseXSimpleDerivationGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[scalaxb.DataRecord[xmlschema.XSimpleDerivationOption]] =
       (((scalaxb.ElemName(targetNamespace, "restriction")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XRestriction](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XRestriction](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "list")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XList](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XList](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "union")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XUnion](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XUnion](x, scalaxb.ElemName(node) :: stack)))))
   
-    def parseXSimpleDerivationGroup(wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XSimpleDerivationOption]] =
+    def parseXSimpleDerivationGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XSimpleDerivationOption]] =
       (((scalaxb.ElemName(targetNamespace, "restriction")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XRestriction](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XRestriction](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "list")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XList](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XList](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "union")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XUnion](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XUnion](x, scalaxb.ElemName(node) :: stack)))))
     
-    def parsemixedXSimpleDerivationGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXSimpleDerivationGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       (((((scalaxb.ElemName(targetNamespace, "restriction")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XRestriction](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XRestriction](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "list")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XList](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XList](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "union")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XUnion](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XUnion](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }))
@@ -3596,35 +3397,35 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXIdentityConstraintGroupFormat extends scalaxb.AnyElemNameParser {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXIdentityConstraintGroup: Parser[scalaxb.DataRecord[xmlschema.XIdentityConstraintOption]] =
+    def parseXIdentityConstraintGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[scalaxb.DataRecord[xmlschema.XIdentityConstraintOption]] =
       (((scalaxb.ElemName(targetNamespace, "unique")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XKeybasable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XKeybasable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "key")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XKeybasable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XKeybasable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "keyref")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XKeyref](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XKeyref](x, scalaxb.ElemName(node) :: stack)))))
   
-    def parseXIdentityConstraintGroup(wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XIdentityConstraintOption]] =
+    def parseXIdentityConstraintGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XIdentityConstraintOption]] =
       (((scalaxb.ElemName(targetNamespace, "unique")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XKeybasable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XKeybasable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "key")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XKeybasable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XKeybasable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "keyref")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XKeyref](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XKeyref](x, scalaxb.ElemName(node) :: stack)))))
     
-    def parsemixedXIdentityConstraintGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXIdentityConstraintGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       (((((scalaxb.ElemName(targetNamespace, "unique")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XKeybasable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XKeybasable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "key")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XKeybasable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XKeybasable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "keyref")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XKeyref](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XKeyref](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }))
@@ -3634,26 +3435,26 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXAllModelGroupFormat extends scalaxb.AnyElemNameParser {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXAllModelGroup: Parser[xmlschema.XAllModelSequence] =
+    def parseXAllModelGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAllModelSequence] =
       ((opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       rep(((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNarrowMaxMin](x)))))) ^^ 
-        { case p1 ~ p2 => xmlschema.XAllModelSequence(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNarrowMaxMin](x, scalaxb.ElemName(node) :: stack)))))) ^^ 
+        { case p1 ~ p2 => xmlschema.XAllModelSequence(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq) })
   
-    def parseXAllModelGroup(wrap: Boolean): Parser[scalaxb.DataRecord[Any]] =
+    def parseXAllModelGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[Any]] =
       ((opt(scalaxb.ElemName(targetNamespace, "annotation")) ~ 
       rep(((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNarrowMaxMin](x)))))) ^^ 
-        { case p1 ~ p2 => scalaxb.DataRecord(xmlschema.XAllModelSequence(p1.headOption map { fromXML[xmlschema.XAnnotation](_) },
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNarrowMaxMin](x, scalaxb.ElemName(node) :: stack)))))) ^^ 
+        { case p1 ~ p2 => scalaxb.DataRecord(xmlschema.XAllModelSequence(p1.headOption map { scalaxb.fromXML[xmlschema.XAnnotation](_, scalaxb.ElemName(node) :: stack) },
         p2.toSeq)) })
     
-    def parsemixedXAllModelGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXAllModelGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       (((opt(scalaxb.ElemName(targetNamespace, "annotation")) ^^ 
-      (_ map { x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAnnotation](x)) })) ~ 
+      (_ map { x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAnnotation](x, scalaxb.ElemName(node) :: stack)) })) ~ 
       optTextRecord ~ 
       rep(((((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNarrowMaxMin](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNarrowMaxMin](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) })) ~ 
@@ -3664,16 +3465,15 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         p4.toList) })
   }
 
-  override def buildXmlschemaXAllModelSequenceFormat = new DefaultXmlschemaXAllModelSequenceFormat {} 
   trait DefaultXmlschemaXAllModelSequenceFormat extends scalaxb.XMLFormat[xmlschema.XAllModelSequence] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XAllModelSequence] = Left("don't call me.")
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XAllModelSequence] = Left("don't call me.")
     
     def writes(__obj: xmlschema.XAllModelSequence, __namespace: Option[String], __elementLabel: Option[String], 
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
-      Seq.concat(__obj.annotation map { toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
-        __obj.xallmodeloption1 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XNarrowMaxMin]](x, x.namespace, x.key, __scope, false) })
+      Seq.concat(__obj.annotation map { scalaxb.toXML[xmlschema.XAnnotation](_, targetNamespace, Some("annotation"), __scope, false) } getOrElse {Nil},
+        __obj.xallmodeloption1 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XNarrowMaxMin]](x, x.namespace, x.key, __scope, false) })
 
 
   }
@@ -3682,40 +3482,40 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXComplexTypeModelGroupFormat extends XmlschemaXTypeDefParticleGroupFormat with XmlschemaXAttrDeclsGroupFormat {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXComplexTypeModelGroup: Parser[scalaxb.DataRecord[xmlschema.XComplexTypeModelOption]] =
+    def parseXComplexTypeModelGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[scalaxb.DataRecord[xmlschema.XComplexTypeModelOption]] =
       (((scalaxb.ElemName(targetNamespace, "simpleContent")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XSimpleContent](x)))) ||| 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XSimpleContent](x, scalaxb.ElemName(node) :: stack)))) ||| 
       ((scalaxb.ElemName(targetNamespace, "complexContent")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XComplexContent](x)))) ||| 
-      ((opt(parseXTypeDefParticleGroup) ~ 
-      (parseXAttrDeclsGroup)) ^^ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XComplexContent](x, scalaxb.ElemName(node) :: stack)))) ||| 
+      ((opt(parseXTypeDefParticleGroup(node, scalaxb.ElemName(node) :: stack)) ~ 
+      (parseXAttrDeclsGroup(node, scalaxb.ElemName(node) :: stack))) ^^ 
         { case p1 ~ p2 => scalaxb.DataRecord(xmlschema.XComplexTypeModelSequence1(p1,
         p2)) }))
   
-    def parseXComplexTypeModelGroup(wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XComplexTypeModelOption]] =
+    def parseXComplexTypeModelGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XComplexTypeModelOption]] =
       (((scalaxb.ElemName(targetNamespace, "simpleContent")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XSimpleContent](x)))) ||| 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XSimpleContent](x, scalaxb.ElemName(node) :: stack)))) ||| 
       ((scalaxb.ElemName(targetNamespace, "complexContent")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XComplexContent](x)))) ||| 
-      ((opt(parseXTypeDefParticleGroup) ~ 
-      (parseXAttrDeclsGroup)) ^^ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XComplexContent](x, scalaxb.ElemName(node) :: stack)))) ||| 
+      ((opt(parseXTypeDefParticleGroup(node, scalaxb.ElemName(node) :: stack)) ~ 
+      (parseXAttrDeclsGroup(node, scalaxb.ElemName(node) :: stack))) ^^ 
         { case p1 ~ p2 => scalaxb.DataRecord(xmlschema.XComplexTypeModelSequence1(p1,
         p2)) }))
     
-    def parsemixedXComplexTypeModelGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXComplexTypeModelGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       (((((scalaxb.ElemName(targetNamespace, "simpleContent")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XSimpleContent](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XSimpleContent](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "complexContent")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XComplexContent](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XComplexContent](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
-      ((opt(parsemixedXTypeDefParticleGroup) ~ 
+      ((opt(parsemixedXTypeDefParticleGroup(node, scalaxb.ElemName(node) :: stack)) ~ 
       optTextRecord ~ 
-      (parsemixedXAttrDeclsGroup) ~ 
+      (parsemixedXAttrDeclsGroup(node, scalaxb.ElemName(node) :: stack)) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 ~ p3 ~ p4 => Seq.concat(p1 getOrElse {Nil},
         p2.toList,
@@ -3723,16 +3523,15 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         p4.toList) }))
   }
 
-  override def buildXmlschemaXComplexTypeModelSequence1Format = new DefaultXmlschemaXComplexTypeModelSequence1Format {} 
   trait DefaultXmlschemaXComplexTypeModelSequence1Format extends scalaxb.XMLFormat[xmlschema.XComplexTypeModelSequence1] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XComplexTypeModelSequence1] = Left("don't call me.")
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XComplexTypeModelSequence1] = Left("don't call me.")
     
     def writes(__obj: xmlschema.XComplexTypeModelSequence1, __namespace: Option[String], __elementLabel: Option[String], 
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
-      Seq.concat(__obj.arg1 map { x => toXML[scalaxb.DataRecord[xmlschema.XTypeDefParticleOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
-        toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, targetNamespace, Some("arg2"), __scope, false))
+      Seq.concat(__obj.arg1 map { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XTypeDefParticleOption]](x, x.namespace, x.key, __scope, false) } getOrElse {Nil},
+        scalaxb.toXML[xmlschema.XAttrDeclsSequence](__obj.arg2, None, Some("arg2"), __scope, false))
 
 
   }
@@ -3741,38 +3540,38 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXAttrDeclsGroupFormat extends scalaxb.AnyElemNameParser {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXAttrDeclsGroup: Parser[xmlschema.XAttrDeclsSequence] =
+    def parseXAttrDeclsGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[xmlschema.XAttrDeclsSequence] =
       ((rep(((scalaxb.ElemName(targetNamespace, "attribute")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAttributable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAttributable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "attributeGroup")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAttributeGroupRef](x))))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAttributeGroupRef](x, scalaxb.ElemName(node) :: stack))))) ~ 
       opt(scalaxb.ElemName(targetNamespace, "anyAttribute"))) ^^ 
         { case p1 ~ p2 => xmlschema.XAttrDeclsSequence(p1.toSeq,
-        p2.headOption map { fromXML[xmlschema.XWildcardable](_) }) })
+        p2.headOption map { scalaxb.fromXML[xmlschema.XWildcardable](_, scalaxb.ElemName(node) :: stack) }) })
   
-    def parseXAttrDeclsGroup(wrap: Boolean): Parser[scalaxb.DataRecord[Any]] =
+    def parseXAttrDeclsGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[Any]] =
       ((rep(((scalaxb.ElemName(targetNamespace, "attribute")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAttributable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAttributable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "attributeGroup")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAttributeGroupRef](x))))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAttributeGroupRef](x, scalaxb.ElemName(node) :: stack))))) ~ 
       opt(scalaxb.ElemName(targetNamespace, "anyAttribute"))) ^^ 
         { case p1 ~ p2 => scalaxb.DataRecord(xmlschema.XAttrDeclsSequence(p1.toSeq,
-        p2.headOption map { fromXML[xmlschema.XWildcardable](_) })) })
+        p2.headOption map { scalaxb.fromXML[xmlschema.XWildcardable](_, scalaxb.ElemName(node) :: stack) })) })
     
-    def parsemixedXAttrDeclsGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXAttrDeclsGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       ((rep(((((scalaxb.ElemName(targetNamespace, "attribute")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAttributable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAttributable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "attributeGroup")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAttributeGroupRef](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAttributeGroupRef](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) })) ~ 
       optTextRecord ~ 
       (opt(scalaxb.ElemName(targetNamespace, "anyAttribute")) ^^ 
-      (_ map { x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XWildcardable](x)) })) ~ 
+      (_ map { x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XWildcardable](x, scalaxb.ElemName(node) :: stack)) })) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 ~ p3 ~ p4 => Seq.concat(p1.flatten,
         p2.toList,
@@ -3780,16 +3579,15 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
         p4.toList) })
   }
 
-  override def buildXmlschemaXAttrDeclsSequenceFormat = new DefaultXmlschemaXAttrDeclsSequenceFormat {} 
   trait DefaultXmlschemaXAttrDeclsSequenceFormat extends scalaxb.XMLFormat[xmlschema.XAttrDeclsSequence] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XAttrDeclsSequence] = Left("don't call me.")
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XAttrDeclsSequence] = Left("don't call me.")
     
     def writes(__obj: xmlschema.XAttrDeclsSequence, __namespace: Option[String], __elementLabel: Option[String], 
         __scope: scala.xml.NamespaceBinding, __typeAttribute: Boolean): scala.xml.NodeSeq =
-      Seq.concat(__obj.xattrdeclsoption1 flatMap { x => toXML[scalaxb.DataRecord[xmlschema.XAttrDeclsOption1]](x, x.namespace, x.key, __scope, false) },
-        __obj.anyAttribute map { toXML[xmlschema.XWildcardable](_, targetNamespace, Some("anyAttribute"), __scope, false) } getOrElse {Nil})
+      Seq.concat(__obj.xattrdeclsoption1 flatMap { x => scalaxb.toXML[scalaxb.DataRecord[xmlschema.XAttrDeclsOption1]](x, x.namespace, x.key, __scope, false) },
+        __obj.anyAttribute map { scalaxb.toXML[xmlschema.XWildcardable](_, targetNamespace, Some("anyAttribute"), __scope, false) } getOrElse {Nil})
 
 
   }
@@ -3798,62 +3596,62 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXParticleGroupFormat extends scalaxb.AnyElemNameParser {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXParticleGroup: Parser[scalaxb.DataRecord[xmlschema.XParticleOption]] =
+    def parseXParticleGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[scalaxb.DataRecord[xmlschema.XParticleOption]] =
       (((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalElementable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalElementable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XGroupRef](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XGroupRef](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "all")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAllable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAllable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "choice")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "sequence")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "any")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAny](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAny](x, scalaxb.ElemName(node) :: stack)))))
   
-    def parseXParticleGroup(wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XParticleOption]] =
+    def parseXParticleGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XParticleOption]] =
       (((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalElementable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalElementable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XGroupRef](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XGroupRef](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "all")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAllable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAllable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "choice")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "sequence")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "any")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAny](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAny](x, scalaxb.ElemName(node) :: stack)))))
     
-    def parsemixedXParticleGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXParticleGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       (((((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalElementable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalElementable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XGroupRef](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XGroupRef](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "all")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAllable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAllable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "choice")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "sequence")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "any")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAny](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAny](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }))
@@ -3863,53 +3661,53 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXNestedParticleGroupFormat extends scalaxb.AnyElemNameParser {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXNestedParticleGroup: Parser[scalaxb.DataRecord[xmlschema.XNestedParticleOption]] =
+    def parseXNestedParticleGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[scalaxb.DataRecord[xmlschema.XNestedParticleOption]] =
       (((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalElementable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalElementable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XGroupRef](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XGroupRef](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "choice")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "sequence")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "any")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAny](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAny](x, scalaxb.ElemName(node) :: stack)))))
   
-    def parseXNestedParticleGroup(wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XNestedParticleOption]] =
+    def parseXNestedParticleGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XNestedParticleOption]] =
       (((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalElementable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalElementable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XGroupRef](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XGroupRef](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "choice")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "sequence")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "any")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAny](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAny](x, scalaxb.ElemName(node) :: stack)))))
     
-    def parsemixedXNestedParticleGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXNestedParticleGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       (((((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XLocalElementable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XLocalElementable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XGroupRef](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XGroupRef](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "choice")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "sequence")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "any")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAny](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAny](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }))
@@ -3922,44 +3720,44 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXTypeDefParticleGroupFormat extends scalaxb.AnyElemNameParser {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXTypeDefParticleGroup: Parser[scalaxb.DataRecord[xmlschema.XTypeDefParticleOption]] =
+    def parseXTypeDefParticleGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[scalaxb.DataRecord[xmlschema.XTypeDefParticleOption]] =
       (((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XGroupRef](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XGroupRef](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "all")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAllable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAllable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "choice")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "sequence")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))))
   
-    def parseXTypeDefParticleGroup(wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XTypeDefParticleOption]] =
+    def parseXTypeDefParticleGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XTypeDefParticleOption]] =
       (((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XGroupRef](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XGroupRef](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "all")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAllable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAllable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "choice")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "sequence")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))))
     
-    def parsemixedXTypeDefParticleGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXTypeDefParticleGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       (((((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XGroupRef](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XGroupRef](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "all")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XAllable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XAllable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "choice")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "sequence")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XExplicitGroupable](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XExplicitGroupable](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }))
@@ -3973,44 +3771,44 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXRedefinableGroupFormat extends scalaxb.AnyElemNameParser {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXRedefinableGroup: Parser[scalaxb.DataRecord[xmlschema.XRedefinableOption]] =
+    def parseXRedefinableGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[scalaxb.DataRecord[xmlschema.XRedefinableOption]] =
       (((scalaxb.ElemName(targetNamespace, "simpleType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelSimpleType](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelSimpleType](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "complexType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelComplexType](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelComplexType](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNamedGroup](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNamedGroup](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "attributeGroup")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNamedAttributeGroup](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNamedAttributeGroup](x, scalaxb.ElemName(node) :: stack)))))
   
-    def parseXRedefinableGroup(wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XRedefinableOption]] =
+    def parseXRedefinableGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[xmlschema.XRedefinableOption]] =
       (((scalaxb.ElemName(targetNamespace, "simpleType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelSimpleType](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelSimpleType](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "complexType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelComplexType](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelComplexType](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNamedGroup](x)))) | 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNamedGroup](x, scalaxb.ElemName(node) :: stack)))) | 
       ((scalaxb.ElemName(targetNamespace, "attributeGroup")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNamedAttributeGroup](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNamedAttributeGroup](x, scalaxb.ElemName(node) :: stack)))))
     
-    def parsemixedXRedefinableGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
+    def parsemixedXRedefinableGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
       (((((scalaxb.ElemName(targetNamespace, "simpleType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelSimpleType](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelSimpleType](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "complexType")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelComplexType](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelComplexType](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "group")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNamedGroup](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNamedGroup](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "attributeGroup")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNamedAttributeGroup](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNamedAttributeGroup](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }))
@@ -4025,50 +3823,49 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
   trait XmlschemaXSchemaTopGroupFormat extends XmlschemaXRedefinableGroupFormat {  
     private val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def parseXSchemaTopGroup: Parser[scalaxb.DataRecord[Any]] =
-      ((parseXRedefinableGroup(true)) ||| 
+    def parseXSchemaTopGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[scalaxb.DataRecord[Any]] =
+      ((parseXRedefinableGroup(node, scalaxb.ElemName(node) :: stack, true)) ||| 
       ((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelElement](x)))) ||| 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelElement](x, scalaxb.ElemName(node) :: stack)))) ||| 
       ((scalaxb.ElemName(targetNamespace, "attribute")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelAttribute](x)))) ||| 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelAttribute](x, scalaxb.ElemName(node) :: stack)))) ||| 
       ((scalaxb.ElemName(targetNamespace, "notation")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNotation](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNotation](x, scalaxb.ElemName(node) :: stack)))))
   
-    def parseXSchemaTopGroup(wrap: Boolean): Parser[scalaxb.DataRecord[Any]] =
-      ((parseXRedefinableGroup(true)) ||| 
+    def parseXSchemaTopGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName], wrap: Boolean): Parser[scalaxb.DataRecord[Any]] =
+      ((parseXRedefinableGroup(node, scalaxb.ElemName(node) :: stack, true)) ||| 
       ((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelElement](x)))) ||| 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelElement](x, scalaxb.ElemName(node) :: stack)))) ||| 
       ((scalaxb.ElemName(targetNamespace, "attribute")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelAttribute](x)))) ||| 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelAttribute](x, scalaxb.ElemName(node) :: stack)))) ||| 
       ((scalaxb.ElemName(targetNamespace, "notation")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNotation](x)))))
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNotation](x, scalaxb.ElemName(node) :: stack)))))
     
-    def parsemixedXSchemaTopGroup: Parser[Seq[scalaxb.DataRecord[Any]]] =
-      ((parsemixedXRedefinableGroup) ||| 
+    def parsemixedXSchemaTopGroup(node: scala.xml.Node, stack: List[scalaxb.ElemName]): Parser[Seq[scalaxb.DataRecord[Any]]] =
+      ((parsemixedXRedefinableGroup(node, scalaxb.ElemName(node) :: stack)) ||| 
       ((((scalaxb.ElemName(targetNamespace, "element")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelElement](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelElement](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "attribute")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XTopLevelAttribute](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XTopLevelAttribute](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }) ||| 
       ((((scalaxb.ElemName(targetNamespace, "notation")) ^^ 
-      (x => scalaxb.DataRecord(x.namespace, Some(x.name), fromXML[xmlschema.XNotation](x)))) ~ 
+      (x => scalaxb.DataRecord(x.namespace, Some(x.name), scalaxb.fromXML[xmlschema.XNotation](x, scalaxb.ElemName(node) :: stack)))) ~ 
       optTextRecord) ^^ 
         { case p1 ~ p2 => Seq.concat(Seq(p1),
         p2.toList) }))
   }
 
-  override def buildXmlschemaXDefRefFormat = new DefaultXmlschemaXDefRefFormat {} 
   trait DefaultXmlschemaXDefRefFormat extends scalaxb.AttributeGroupFormat[xmlschema.XDefRef] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XDefRef] = seq match {
-      case node: scala.xml.Node => Right(xmlschema.XDefRef((node \ "@name").headOption map { fromXML[String](_) },
-      (node \ "@ref").headOption map { fromXML[javax.xml.namespace.QName](_) }))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XDefRef] = seq match {
+      case node: scala.xml.Node => Right(xmlschema.XDefRef((node \ "@name").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) },
+      (node \ "@ref").headOption map { scalaxb.fromXML[javax.xml.namespace.QName](_, scalaxb.ElemName(node) :: stack) }))
       case _ => Left("reads failed: seq must be scala.xml.Node")
     }
     
@@ -4080,13 +3877,12 @@ trait XDefaultXMLProtocol extends XXMLProtocol {
     }
   }
 
-  override def buildXmlschemaXOccursFormat = new DefaultXmlschemaXOccursFormat {} 
   trait DefaultXmlschemaXOccursFormat extends scalaxb.AttributeGroupFormat[xmlschema.XOccurs] {
     val targetNamespace: Option[String] = Some("http://www.w3.org/2001/XMLSchema")
     
-    def reads(seq: scala.xml.NodeSeq): Either[String, xmlschema.XOccurs] = seq match {
-      case node: scala.xml.Node => Right(xmlschema.XOccurs((node \ "@minOccurs").headOption map { fromXML[Int](_) } getOrElse { fromXML[Int](scala.xml.Text("1")) },
-      (node \ "@maxOccurs").headOption map { fromXML[String](_) } getOrElse { fromXML[String](scala.xml.Text("1")) }))
+    def reads(seq: scala.xml.NodeSeq, stack: List[scalaxb.ElemName]): Either[String, xmlschema.XOccurs] = seq match {
+      case node: scala.xml.Node => Right(xmlschema.XOccurs((node \ "@minOccurs").headOption map { scalaxb.fromXML[BigInt](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[BigInt](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) },
+      (node \ "@maxOccurs").headOption map { scalaxb.fromXML[String](_, scalaxb.ElemName(node) :: stack) } getOrElse { scalaxb.fromXML[String](scala.xml.Text("1"), scalaxb.ElemName(node) :: stack) }))
       case _ => Left("reads failed: seq must be scala.xml.Node")
     }
     
