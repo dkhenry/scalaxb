@@ -280,6 +280,10 @@ trait Module extends Logger {
       output
     }
 
+    (importables.keysIterator.toList ::: additionalImportables.keysIterator.toList) map { importable =>
+      processSchema(schemas(importable), context, config)
+    }
+
     processImportables(importables.toList) :::
     processImportables(additionalImportables.toList) :::
     List(processProtocol) :::

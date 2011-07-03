@@ -25,14 +25,11 @@ package scalaxb.compiler.xsd2
 import java.io.{Reader, PrintWriter}
 import java.net.{URI}
 import scala.xml.{Node, Elem}
-import scalaxb.compiler.{Module, Config, Snippet, CustomXML}
 import scalaxb._
+import compiler._
 import xmlschema._
 
 class Driver extends Module { driver =>
-  import scala.xml.factory.{XMLLoader}
-  import javax.xml.parsers.SAXParser
-
   type Schema = ReferenceSchema
   type Context = SchemaContext
   type RawSchema = scala.xml.Node
@@ -43,10 +40,9 @@ class Driver extends Module { driver =>
   def generateProtocol(snippet: Snippet,
     context: Context, config: Config): Seq[Node] = Seq(<source/>)
 
-  def toImportable(alocation: URI, rawschema: RawSchema, aout: PrintWriter): Importable = {
+  def toImportable(alocation: URI, rawschema: RawSchema): Importable =
     new Importable {
       val raw: RawSchema = rawschema
-      val out: PrintWriter = aout
       val location: URI = alocation
 
       def targetNamespace: Option[String] = None
@@ -61,10 +57,15 @@ class Driver extends Module { driver =>
         log("Driver.toSchema: " + wrapped.toString)
         wrapped
       }
-  }
-  }
+    }
+
+  def generateRuntimeFiles[To](implicit evTo: CanBeWriter[To]): List[To] =
+    List(generateFromResource[To](Some("scalaxb"), "scalaxb.scala", "/scalaxb.scala.template"))
 
   def buildContext: Context = SchemaContext()
+
+  def packageName(namespace: Option[String], context: Context): Option[String] =
+    Some("example")
 
   def processSchema(schema: Schema, cntxt: Context, cnfg: Config) =
     (new ContextProcessor() {
