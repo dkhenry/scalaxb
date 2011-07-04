@@ -1,4 +1,4 @@
-import org.specs._
+import org.specs2.mutable._
 import scalaxb.compiler.{Verbose}
 
 object IncTest extends Specification {
@@ -57,7 +57,7 @@ object IncTest extends Specification {
 
     "be referenced as BigInt" >> {
       println(entitySource)
-      entitySource must include("""quantity: BigInt""")
+      entitySource must contain("""quantity: BigInt""")
     }
   } // xs:positiveInteger restriction
 
@@ -97,8 +97,8 @@ object IncTest extends Specification {
 
     "be referenced as its base built-in type" >> {
       println(entitySource)
-      entitySource must include("""comment: String""")
-      entitySource must include("""comment2: String""")
+      entitySource must contain("""comment: String""")
+      entitySource must contain("""comment2: String""")
     }
   } // restriction restriction
 
@@ -126,7 +126,7 @@ object IncTest extends Specification {
 
     "be referenced as Seq" >> {
       println(entitySource)
-      entitySource must include("""milklist1: Seq[MilkType]""")
+      entitySource must contain("""milklist1: Seq[MilkType]""")
     }
   } // list
 
@@ -147,7 +147,7 @@ object IncTest extends Specification {
 
     "be referenced as String" >> {
       println(entitySource)
-      entitySource must include("""union: String""")
+      entitySource must contain("""union: String""")
     }
   } // union
 
@@ -169,15 +169,15 @@ object IncTest extends Specification {
 
     "generate a trait named similarly" >> {
       println(entitySource)
-      entitySource must include("""trait MilkType""")
+      entitySource must contain("""trait MilkType""")
     }
 
     "each enumerations represented as case object" >> {
-      entitySource must include("""case object SKIM""")
+      entitySource must contain("""case object SKIM""")
     }
 
     "be referenced as the trait" >> {
-      entitySource must include("""milk1: MilkType""")
+      entitySource must contain("""milk1: MilkType""")
     }
   } // enumeration
 
@@ -205,7 +205,7 @@ object IncTest extends Specification {
 
     "not generate its own trait" >> {
       println(entitySource)
-      entitySource mustNot find("""SimpleTypeTestWHOLE""")
+      entitySource must not be matching("""SimpleTypeTestWHOLE""")
     }
 
     "be referenced as its base trait" >> {
@@ -245,11 +245,11 @@ object IncTest extends Specification {
 
     "generate a case class named similarly" >> {
       println(entitySource)
-      entitySource must include("""case class Address(""")
+      entitySource must contain("""case class Address(""")
     }
 
     "not generate case class for the primary sequence" >> {
-      entitySource must not include("""AddressSequence""")
+      entitySource must not contain("""AddressSequence""")
     }
 
     val expectedComplexTypeTest =
@@ -302,7 +302,7 @@ object IncTest extends Specification {
 
     "generate a case class named similarly" >> {
       println(entitySource)
-      entitySource must include("""case class TopLevelElementTest(""")
+      entitySource must contain("""case class TopLevelElementTest(""")
     }
   } // element
 
@@ -338,7 +338,7 @@ object IncTest extends Specification {
 
     "generate a case class named similarly" >> {
       println(entitySource)
-      entitySource must include("""case class Item(""")
+      entitySource must contain("""case class Item(""")
     }
   } // local element
 
@@ -396,7 +396,7 @@ object IncTest extends Specification {
 
     "generate a trait named FooOption*" >> {
       println(entitySource)
-      entitySource must include("""trait ChoiceComplexTypeTestOption""")
+      entitySource must contain("""trait ChoiceComplexTypeTestOption""")
     }
 
     val expectedChoiceTest =
