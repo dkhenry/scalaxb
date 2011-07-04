@@ -65,7 +65,7 @@ class Driver extends Module { driver =>
   def buildContext: Context = SchemaContext()
 
   def packageName(namespace: Option[String], context: Context): Option[String] =
-    Some("example")
+    new PackageNamer {}.packageName(namespace, context)
 
   def processSchema(schema: Schema, cntxt: Context, cnfg: Config) =
     (new ContextProcessor() {
@@ -75,7 +75,7 @@ class Driver extends Module { driver =>
     }).processSchema(schema)
 
   def processContext(context: Context, config: Config) {
-    // do nothing.
+    context.packageNames ++= config.packageNames
   }
 
   def readerToRawSchema(reader: Reader): RawSchema = CustomXML.load(reader)

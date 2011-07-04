@@ -4,6 +4,17 @@ import scalaxb.compiler.{ScalaNames, Logger, Config, ReferenceNotFound}
 import xmlschema._
 import Defs._
 import scalaxb._
+import java.net.URI
+
+trait PackageNamer {
+  def packageNameByURI(namespace: Option[URI], context: SchemaContext): Option[String] =
+    packageName(namespace map {_.toString}, context)
+
+  def packageName(namespace: Option[String], context: SchemaContext): Option[String] =
+    if (context.packageNames.contains(namespace)) context.packageNames(namespace)
+    else if (context.packageNames.contains(None)) context.packageNames(None)
+    else None
+}
 
 trait ContextProcessor extends ScalaNames {
   def logger: Logger
