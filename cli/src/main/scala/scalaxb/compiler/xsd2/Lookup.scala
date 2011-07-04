@@ -205,8 +205,10 @@ trait Lookup extends ContextProcessor {
   }
 
   object AnyType {
+    def tagged = Tagged(XsAnyType, HostTag(Some(XML_SCHEMA_URI), SimpleTypeHost, "anyType"))
+
     def unapply(typeName: QualifiedName): Option[Tagged[XsTypeSymbol]] = typeName match {
-      case XS_ANY_TYPE => Some(Tagged(XsAnyType, HostTag(Some(XML_SCHEMA_URI), SimpleTypeHost, "anyType")))
+      case XS_ANY_TYPE => Some(tagged)
       case _ => None
     }
   }

@@ -448,13 +448,18 @@ class ElementOps(val tagged: Tagged[XElement]) {
       case Some(Element(x)) => x.value
       case _ => tagged.value
     }
+
+    // http://www.w3.org/TR/xmlschema-1/#declare-element
+    // An <element> with no referenced or included type definition will correspond to an element declaration which
+    // has the same type definition as the head of its substitution group if it identifies one, otherwise the
+    // **ur-type definition**.
     val typeValue = elem.typeValue map { resolveType(_) }
     val localType = elem.xelementoption map { _ match {
       case DataRecord(_, _, x: XLocalSimpleType)  => Tagged(x, tagged.tag)
       case DataRecord(_, _, x: XLocalComplexType) => Tagged(x, tagged.tag)
     }}
     typeValue getOrElse {
-      localType getOrElse {error("ElementOps#typeStructure: type was not defined " + tagged)}
+      localType getOrElse { AnyType.tagged }
     }
   }
 }
