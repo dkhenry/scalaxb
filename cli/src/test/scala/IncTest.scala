@@ -342,6 +342,86 @@ object IncTest extends Specification {
     }
   } // local element
 
+  "sequences in a complex type" should {
+    val entitySource = module.processNode(<xs:schema targetNamespace="http://www.example.com/general"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:gen="http://www.example.com/general">
+      <xs:complexType name="SequenceComplexTypeTest">
+        <xs:sequence>
+          <xs:sequence>
+            <xs:element name="person1" type="gen:Person"/>
+            <xs:element name="address1" type="gen:Address"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element name="person2" nillable="true" type="gen:Person"/>
+            <xs:element name="address2" nillable="true" type="gen:Address"/>
+          </xs:sequence>
+          <xs:sequence minOccurs="0">
+            <xs:element name="person3" type="gen:Person"/>
+            <xs:element name="address3" type="gen:Address"/>
+          </xs:sequence>
+          <xs:sequence minOccurs="0">
+            <xs:element name="person4" nillable="true" type="gen:Person"/>
+            <xs:element name="address4" nillable="true" type="gen:Address"/>
+          </xs:sequence>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="person5" type="gen:Person"/>
+            <xs:element name="address5" type="gen:Address"/>
+          </xs:sequence>
+          <xs:sequence maxOccurs="unbounded">
+            <xs:element name="person6" nillable="true" type="gen:Person"/>
+            <xs:element name="address6" nillable="true" type="gen:Address"/>
+          </xs:sequence>
+          <xs:sequence>
+            <xs:element name="int1" type="xs:int"/>
+            <xs:element name="int2" type="xs:int"/>
+          </xs:sequence>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="EmptySequenceComplexTypeTest">
+        <xs:sequence/>
+      </xs:complexType>
+
+      <xs:complexType name="Person">
+        <xs:sequence>
+          <xs:element name="firstName" type="xs:string"/>
+          <xs:element name="lastName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+
+      <xs:complexType name="Address">
+        <xs:sequence>
+          <xs:element name="street" type="xs:string"/>
+          <xs:element name="city" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>, "example")(0)
+
+    val expectedSequenceTest =
+      """case class SequenceComplexTypeTest\(sequencecomplextypetestsequence: SequenceComplexTypeTestSequence,\s*
+        |\s*sequencecomplextypetestsequence2: SequenceComplexTypeTestSequence2,\s*
+        |\s*sequencecomplextypetestsequence3: Option\[SequenceComplexTypeTestSequence3\],\s*
+        |\s*sequencecomplextypetestsequence4: Option\[SequenceComplexTypeTestSequence4\],\s*
+        |\s*sequencecomplextypetestsequence5: Seq\[SequenceComplexTypeTestSequence5\],\s*
+        |\s*sequencecomplextypetestsequence6: Seq\[SequenceComplexTypeTestSequence6\],\s*
+        |\s*sequencecomplextypetestsequence7: SequenceComplexTypeTestSequence7\)\s*
+        |""".stripMargin
+
+    "generate a case class named FooSequence*" >> {
+      println(entitySource)
+      entitySource must contain("""case class SequenceComplexTypeTestSequence""")
+    }
+
+    "be referenced as FooSequence if it's made of non-nillable complex type element" >> {
+      entitySource must find(expectedSequenceTest)
+    }
+
+    "not generate anything when the primary sequence is empty" >> {
+      entitySource must contain("""case class EmptySequenceComplexTypeTest()""")
+    }
+  }
+
   "choices in a complex type" should {
     val entitySource = module.processNode(<xs:schema targetNamespace="http://www.example.com/general"
         xmlns:xs="http://www.w3.org/2001/XMLSchema"

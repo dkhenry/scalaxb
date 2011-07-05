@@ -55,8 +55,20 @@ class Generator(val schema: ReferenceSchema, val logger: Logger,
       paramList.map(_.toScalaCode).mkString(", " + NL + indent(1))})</source>) :: compositorCodes: _*)
   }
 
+  def generateSequence(decl: Tagged[KeyedGroup]): Snippet = {
+    implicit val tag = decl.tag
+    val name = names.get(decl) getOrElse {"??"}
+//      val superNames: List[String] = buildOptions(compositor)
+//      val superString = if (superNames.isEmpty) ""
+//        else " extends " + superNames.mkString(" with ")
+    val list = decl.particles
+    val paramList = Param.fromList(list)
+    Snippet(<source>case class { name }({
+      paramList.map(_.toScalaCode).mkString(", " + NL + indent(1))})</source>)
+  }
+
   def generateCompositor(decl: Tagged[KeyedGroup]): Snippet = decl.key match {
-    // case "sequence" => makeSequence(seq)
+    case "sequence" => generateSequence(decl)
     case _ =>
 //      val superNames: List[String] = buildOptions(compositor)
 //      val superString = if (superNames.isEmpty) ""
