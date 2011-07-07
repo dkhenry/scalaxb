@@ -101,7 +101,7 @@ case class KeyedGroup(key: String, group: XGroup) {
         case _ => List(Tagged(this, tag))
       }
       else List(Tagged(this, tag))
-    else splitter.splitLongSequence(Tagged(this, tag))
+    else splitter.splitIfLongSequence(Tagged(this, tag))
 }
 
 sealed trait Tagged[+A] {

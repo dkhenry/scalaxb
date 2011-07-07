@@ -55,6 +55,9 @@ trait Namer extends ScalaNames { self: Lookup with Splitter  =>
           }
         }
         else names(tagged) = makeProtectedTypeName(tagged.tag.name + "Sequence", "", tagged.tag, false)
+        self.splitLongSequence(tagged)(tagged.tag) map { _ map { seq =>
+          names(seq) = makeProtectedTypeName(seq.tag.name + "Sequence", "", seq.tag, false)
+        }}
       case AllTag      => names(tagged) = makeProtectedTypeName(tagged.tag.name + "All", "", tagged.tag, false)
       case _ =>
     }
