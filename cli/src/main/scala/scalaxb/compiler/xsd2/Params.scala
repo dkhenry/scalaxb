@@ -4,9 +4,10 @@ import scalaxb._
 import xmlschema._
 import scalaxb.compiler.xsd.{XsAnyType, BuiltInSimpleTypeSymbol, XsTypeSymbol, XsInt}
 import Defs._
+import Occurrence._
 import java.net.URI
 
-trait Params extends Lookup {
+trait Params { self: Namer with Lookup =>
   case class Param(namespace: Option[URI],
     name: String,
     typeSymbol: Tagged[Any],
@@ -45,19 +46,19 @@ trait Params extends Lookup {
       }}
     }
 
-    // tagged can be Tagged[XSimpleType], Tagged[BuiltInSymbol], Tagged[XElement], Tagged[KeyedGroup],
+    // tagged can be Tagged[XSimpleType], Tagged[BuiltInSymbol], Tagged[XLocalElementable], Tagged[KeyedGroup],
     // Tagged[XAny].
     private def buildParam(tagged: Tagged[Any], postfix: Int) = tagged match {
       case TaggedSimpleType(decl, tag) => Param(tagged.tag.namespace, tagged.tag.name, tagged, SingleNotNillable, false)
       case TaggedSymbol(symbol, tag)   => Param(tagged.tag.namespace, tagged.tag.name, tagged, SingleNotNillable, false)
-      case x: TaggedElement            => buildElementParam(x)
+      case x: TaggedLocalElement       => buildElementParam(x)
       case x: TaggedKeyedGroup if x.key == ChoiceTag => buildChoiceParam(x)
       case x: TaggedKeyedGroup         => buildCompositorParam(x)
       case x: TaggedAny                => buildAnyParam(x, postfix)
       case _ => error("buildParam: " + tagged)
     }
 
-    private def buildElementParam(tagged: Tagged[XElement]): Param = {
+    private def buildElementParam(tagged: Tagged[XLocalElementable]): Param = {
       val elem = tagged.value
       val name = elem.name.getOrElse(elem.ref map {_.toString} getOrElse {"??"})
       val typesymbol = elem.name map { _ =>
@@ -86,7 +87,7 @@ trait Params extends Lookup {
         case Nil       => TaggedXsAnyType
         case x :: xs =>
           val sameType = x match {
-            case elem: TaggedElement =>
+            case elem: TaggedLocalElement =>
               val firstType = particleType(x)
               if (xs forall { particleType(_) == firstType }) firstType
               else None
@@ -105,7 +106,7 @@ trait Params extends Lookup {
     }
 
     private def particleType(particle: Tagged[_]) = particle match {
-      case elem: TaggedElement => Some(elem.typeStructure)
+      case elem: TaggedLocalElement => Some(elem.typeStructure)
       case _ => None
     }
 

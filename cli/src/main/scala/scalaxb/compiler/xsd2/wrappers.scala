@@ -101,9 +101,10 @@ object WrappedSchema {
       case tagged: TaggedComplexType => (tagged: Tagged[XAnnotatedable])
     }
 
-  def elemList(schema: XSchema): Seq[TaggedElement] =
+  def elemList(schema: XSchema): Seq[Tagged[XElement]] =
     schema collect {
-      case tagged: TaggedElement => tagged
+      case tagged: TaggedTopLevelElement => (tagged: Tagged[XElement])
+      case tagged: TaggedLocalElement    => (tagged: Tagged[XElement])
     }
 
   def attrList(schema: XSchema): Seq[TaggedAttribute] =

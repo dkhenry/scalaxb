@@ -383,6 +383,36 @@ object IncTest extends Specification {
         <xs:sequence/>
       </xs:complexType>
 
+      <xs:complexType name="LongSequenceComplexTypeTest">
+        <xs:sequence>
+          <xs:element name="int1" type="xs:int"/>
+          <xs:element name="int2" type="xs:int"/>
+          <xs:element name="int3" type="xs:int"/>
+          <xs:element name="int4" type="xs:int"/>
+          <xs:element name="int5" type="xs:int"/>
+          <xs:element name="int6" type="xs:int"/>
+          <xs:element name="int7" type="xs:int"/>
+          <xs:element name="int8" type="xs:int"/>
+          <xs:element name="int9" type="xs:int"/>
+          <xs:element name="int10" type="xs:int"/>
+          <xs:element name="int11" type="xs:int"/>
+          <xs:element name="int12" type="xs:int"/>
+          <xs:element name="int13" type="xs:int"/>
+          <xs:element name="int14" type="xs:int"/>
+          <xs:element name="int15" type="xs:int"/>
+          <xs:element name="int16" type="xs:int"/>
+          <xs:element name="int17" type="xs:int"/>
+          <xs:element name="int18" type="xs:int"/>
+          <xs:element name="int19" type="xs:int"/>
+          <xs:element name="int20" type="xs:int"/>
+          <xs:element name="int21" type="xs:int"/>
+          <xs:element name="int22" type="xs:int"/>
+          <xs:element name="int23" type="xs:int"/>
+          <xs:element name="int24" type="xs:int"/>
+          <xs:element name="int25" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+
       <xs:complexType name="Person">
         <xs:sequence>
           <xs:element name="firstName" type="xs:string"/>
@@ -419,6 +449,10 @@ object IncTest extends Specification {
 
     "not generate anything when the primary sequence is empty" >> {
       entitySource must contain("""case class EmptySequenceComplexTypeTest()""")
+    }
+
+    "be split into chunks of case classes when it exceeds 20 particles" >> {
+      entitySource must contain("""case class LongSequenceComplexTypeTestSequence(int1: Int""")
     }
   }
 

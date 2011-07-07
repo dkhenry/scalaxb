@@ -59,24 +59,24 @@ case object AttributeHost extends TopLevelType
 case class HostTag(namespace: Option[URI], topLevel: TopLevelType, name: String)
 object HostTag {
   def apply(namespace: Option[URI], elem: XTopLevelElement): HostTag =
-      HostTag(namespace, ElementHost, elem.name getOrElse {error("name is required.")})
+    HostTag(namespace, ElementHost, elem.name getOrElse {error("name is required.")})
   def apply(namespace: Option[URI], decl: XTopLevelSimpleType): HostTag =
     HostTag(namespace, SimpleTypeHost, decl.name getOrElse {error("name is required.")})
   def apply(namespace: Option[URI], decl: XTopLevelComplexType): HostTag =
-      HostTag(namespace, ComplexTypeHost, decl.name getOrElse {error("name is required.")})
+    HostTag(namespace, ComplexTypeHost, decl.name getOrElse {error("name is required.")})
   def apply(namespace: Option[URI], attr: XTopLevelAttribute): HostTag =
-      HostTag(namespace, AttributeHost, attr.name getOrElse {error("name is required.")})
+    HostTag(namespace, AttributeHost, attr.name getOrElse {error("name is required.")})
   def apply(namespace: Option[URI], group: XNamedGroup): HostTag =
-      HostTag(namespace, NamedGroupHost, group.name getOrElse {error("name is required.")})
+    HostTag(namespace, NamedGroupHost, group.name getOrElse {error("name is required.")})
   def apply(namespace: Option[URI], group: XNamedAttributeGroup): HostTag =
-      HostTag(namespace, AttributeGroupHost, group.name getOrElse {error("name is required.")})
+    HostTag(namespace, AttributeGroupHost, group.name getOrElse {error("name is required.")})
 }
 
 case class KeyedGroup(key: String, group: XGroup) {
   import Defs._
 
   // List of TaggedElement, TaggedKeyedGroup, or TaggedAny.
-  def particles(implicit tag: HostTag, lookup: Lookup): List[Tagged[_]] =
+  def particles(implicit tag: HostTag, lookup: Lookup, splitter: Splitter): List[Tagged[_]] =
     group.arg1.toList flatMap {
       case DataRecord(_, _, x: XLocalElementable) => List(Tagged(x, tag))
       case DataRecord(_, Some(particleKey), x: XGroupRef) => List(Tagged(KeyedGroup(particleKey, x), tag))
@@ -86,25 +86,25 @@ case class KeyedGroup(key: String, group: XGroup) {
       case DataRecord(_, _, x: XAny) => List(Tagged(x, tag))
     }
 
-  private def innerSequenceToParticles(implicit tag: HostTag, lookup: Lookup): List[Tagged[_]] =
+  private def innerSequenceToParticles(implicit tag: HostTag, lookup: Lookup, splitter: Splitter): List[Tagged[_]] =
     if (group.minOccurs != 1 || group.maxOccurs != "1")
       if (group.arg1.length == 1) group.arg1(0) match {
         case DataRecord(_, Some(particleKey), any: XAny) =>
           List(Tagged(any.copy(
             minOccurs = math.min(any.minOccurs.toInt, group.minOccurs.toInt),
-            maxOccurs = lookup.max(any.maxOccurs, group.maxOccurs)), tag))
+            maxOccurs = Occurrence.max(any.maxOccurs, group.maxOccurs)), tag))
         case DataRecord(_, Some(ChoiceTag), choice: XExplicitGroup) =>
           List(Tagged(KeyedGroup(ChoiceTag, choice.copy(
             minOccurs = math.min(choice.minOccurs.toInt, group.minOccurs.toInt),
-            maxOccurs = lookup.max(choice.maxOccurs, group.maxOccurs)) ), tag))
+            maxOccurs = Occurrence.max(choice.maxOccurs, group.maxOccurs)) ), tag))
 
         case _ => List(Tagged(this, tag))
       }
       else List(Tagged(this, tag))
-    else lookup.splitLongSequence(Tagged(this, tag))
+    else splitter.splitLongSequence(Tagged(this, tag))
 }
 
-trait Tagged[+A] {
+sealed trait Tagged[+A] {
   def value: A
   def tag: HostTag
   override def toString: String = "Tagged(%s, %s)".format(value.toString, tag.toString)
@@ -115,7 +115,8 @@ object Tagged {
   def apply(value: XComplexType, tag: HostTag): Tagged[XComplexType] = TaggedComplexType(value, tag)
   def apply(value: KeyedGroup, tag: HostTag): Tagged[KeyedGroup] = TaggedKeyedGroup(value, tag)
   def apply(value: XAttributeGroup, tag: HostTag): Tagged[XAttributeGroup] = TaggedAttributeGroup(value, tag)
-  def apply(value: XElement, tag: HostTag): Tagged[XElement] = TaggedElement(value, tag)
+  def apply(value: XTopLevelElement, tag: HostTag): Tagged[XTopLevelElement] = TaggedTopLevelElement(value, tag)
+  def apply(value: XLocalElementable, tag: HostTag): Tagged[XLocalElementable] = TaggedLocalElement(value, tag)
   def apply(value: XAttributable, tag: HostTag): Tagged[XAttributable] = TaggedAttribute(value, tag)
   def apply(value: XAny, tag: HostTag): Tagged[XAny] = TaggedAny(value, tag)
   def apply(value: XsTypeSymbol, tag: HostTag): Tagged[XsTypeSymbol] = TaggedSymbol(value, tag)
@@ -125,20 +126,27 @@ object Tagged {
   implicit def box(value: XComplexType)(implicit tag: HostTag) = Tagged(value, tag)
   implicit def box(value: KeyedGroup)(implicit tag: HostTag) = Tagged(value, tag)
   implicit def box(value: XAttributeGroup)(implicit tag: HostTag) = Tagged(value, tag)
-  implicit def box(value: XElement)(implicit tag: HostTag) = Tagged(value, tag)
+  implicit def box(value: XTopLevelElement)(implicit tag: HostTag) = Tagged(value, tag)
+  implicit def box(value: XLocalElementable)(implicit tag: HostTag) = Tagged(value, tag)
   implicit def box(value: XAttributable)(implicit tag: HostTag) = Tagged(value, tag)
   implicit def box(value: XAny)(implicit tag: HostTag) = Tagged(value, tag)
   implicit def box(value: XsTypeSymbol)(implicit tag: HostTag) = Tagged(value, tag)
   implicit def box(value: XNoFixedFacet)(implicit tag: HostTag) = Tagged(value, tag)
 
   implicit def unbox[A](tagged: Tagged[A]): A = tagged.value
+
+  def toParticleDataRecord(tagged: Tagged[_]): DataRecord[XParticleOption] = tagged match {
+    case TaggedLocalElement(value, tag) => DataRecord(tag.namespace map {_.toString}, Some(tag.name), value)
+    case _ => error("unknown particle: " + tagged)
+  }
 }
 
 case class TaggedSimpleType(value: XSimpleType, tag: HostTag) extends Tagged[XSimpleType] {}
 case class TaggedComplexType(value: XComplexType, tag: HostTag) extends Tagged[XComplexType] {}
 case class TaggedKeyedGroup(value: KeyedGroup, tag: HostTag) extends Tagged[KeyedGroup] {}
 case class TaggedAttributeGroup(value: XAttributeGroup, tag: HostTag) extends Tagged[XAttributeGroup] {}
-case class TaggedElement(value: XElement, tag: HostTag) extends Tagged[XElement] {}
+case class TaggedTopLevelElement(value: XTopLevelElement, tag: HostTag) extends Tagged[XTopLevelElement] {}
+case class TaggedLocalElement(value: XLocalElementable, tag: HostTag) extends Tagged[XLocalElementable] {}
 case class TaggedAttribute(value: XAttributable, tag: HostTag) extends Tagged[XAttributable] {}
 case class TaggedAny(value: XAny, tag: HostTag) extends Tagged[XAny] {}
 case class TaggedSymbol(value: XsTypeSymbol, tag: HostTag) extends Tagged[XsTypeSymbol] {}
@@ -172,7 +180,8 @@ object SchemaOps {
   def toThat(decl: XComplexType, tag: HostTag): Option[Tagged[_]] = Some(Tagged(decl, tag))
   def toThat(group: KeyedGroup, tag: HostTag): Option[Tagged[_]] = Some(Tagged(group, tag))
   def toThat(group: XAttributeGroup, tag: HostTag): Option[Tagged[_]] = Some(Tagged(group, tag))
-  def toThat(elem: XElement, tag: HostTag): Option[Tagged[_]] = Some(Tagged(elem, tag))
+  def toThat(elem: XTopLevelElement, tag: HostTag): Option[Tagged[_]] = Some(Tagged(elem, tag))
+  def toThat(elem: XLocalElementable, tag: HostTag): Option[Tagged[_]] = Some(Tagged(elem, tag))
   def toThat(attr: XAttributable, tag: HostTag): Option[Tagged[_]] = Some(Tagged(attr, tag))
 
   def schemaToList(schema: XSchema): List[Tagged[_]] = {
@@ -196,7 +205,7 @@ object SchemaOps {
         case DataRecord(_, _, x: XNamedAttributeGroup) =>
           processAttributeGroup(x)(HostTag(ns, x))
         case DataRecord(_, _, x: XTopLevelElement)     =>
-          processElement(x)(HostTag(ns, x))
+          processTopLevelElement(x)(HostTag(ns, x))
         case DataRecord(_, _, x: XTopLevelAttribute)   =>
           processAttribute(x)(HostTag(ns, x))
         case DataRecord(_, _, x: XNotation)            => Nil
@@ -224,7 +233,7 @@ object SchemaOps {
     // <xs:element ref="xs:any"/>
     def processParticle(particleKey: String, particle: XParticleOption) =
       particle match {
-        case x: XLocalElementable  => processElement(x)
+        case x: XLocalElementable  => processLocalElement(x)
         case x: XGroupRef          => processGroup(KeyedGroup(particleKey, x))
         case x: XExplicitGroupable => processGroup(KeyedGroup(particleKey, x))
         case x: XAny               => Nil
@@ -241,7 +250,14 @@ object SchemaOps {
     toThat(group, tag).toList :::
     processAttrSeq(group.arg1)
 
-  def processElement(elem: XElement)(implicit tag: HostTag): List[Tagged[_]] =
+  def processTopLevelElement(elem: XTopLevelElement)(implicit tag: HostTag): List[Tagged[_]] =
+    toThat(elem, tag).toList :::
+    (elem.xelementoption map { _.value match {
+      case x: XLocalComplexType => Tagged(x, tag).toList
+      case x: XLocalSimpleType  => processSimpleType(x)
+    }} getOrElse {Nil})
+
+  def processLocalElement(elem: XLocalElementable)(implicit tag: HostTag): List[Tagged[_]] =
     toThat(elem, tag).toList :::
     (elem.xelementoption map { _.value match {
       case x: XLocalComplexType => Tagged(x, tag).toList

@@ -31,59 +31,11 @@ object QualifiedName {
       else QualifiedName(Option[String](scope.getURI(null)) map {new URI(_)}, name)
 }
 
-trait Lookup extends ContextProcessor {
-  implicit val lookup = this
-
+trait Lookup extends ContextProcessor { self: Namer with Splitter =>
+  implicit val lookup = this;
   def schema: ReferenceSchema
   implicit def scope: NamespaceBinding = schema.scope
   implicit def targetNamespace = schema.targetNamespace
-
-  case class Occurrence(minOccurs: Int, maxOccurs: Int, nillable: Boolean)
-  object Occurrence {
-    def apply(minOccurs: Int, maxOccurs: String, nillable: Boolean): Occurrence =
-      Occurrence(minOccurs,
-        if (maxOccurs == "unbounded") Int.MaxValue
-        else maxOccurs.toInt,
-        nillable)
-
-    def apply(elem: XElement): Occurrence =
-      Occurrence(elem.minOccurs.toInt, elem.maxOccurs, elem.nillable)
-
-    def apply(any: XAny): Occurrence =
-      Occurrence(any.minOccurs.toInt, any.maxOccurs, false)
-
-    def apply(particle: DataRecord[XParticleOption]): Occurrence = particle match {
-      case DataRecord(_, _, x: XElement)               => Occurrence(x)
-      case DataRecord(_, _, x: XAny)                   => Occurrence(x)
-      case DataRecord(_, Some("group"), x: XGroup)     => Occurrence(KeyedGroup("group", x))
-      case DataRecord(_, Some("all"), x: XGroup)       => Occurrence(KeyedGroup("all", x))
-      case DataRecord(_, Some("choice"), x: XGroup)    => Occurrence(KeyedGroup("choice", x))
-      case DataRecord(_, Some("sequence"), x: XGroup)  => Occurrence(KeyedGroup("sequence", x))
-    }
-
-    def apply(keyed: KeyedGroup): Occurrence = keyed.key match {
-      case GroupTag =>
-        // TODO: fix this
-        Occurrence(keyed.group.minOccurs.toInt, keyed.group.maxOccurs, false)
-      case ChoiceTag =>
-        val choice = keyed.group
-        val o = Occurrence(choice.minOccurs.toInt, choice.maxOccurs, false)
-        val particleOs = choice.arg1.toList map {Occurrence(_)}
-        Occurrence((o.minOccurs :: (particleOs map { _.minOccurs})).min,
-          (o.maxOccurs :: (particleOs map { _.maxOccurs})).max,
-          particleOs exists {_.nillable})
-      case _ =>
-        Occurrence(keyed.group.minOccurs.toInt, keyed.group.maxOccurs, false)
-    }
-
-  }
-
-  val SingleNotNillable = Occurrence(1, 1, false)
-  val SingleNillable = Occurrence(1, 1, true)
-  val OptionalNotNillable = Occurrence(0, 1, false)
-  val OptionalNillable = Occurrence(0, 1, true)
-  val UnboundedNotNillable = Occurrence(0, Int.MaxValue, false)
-  val UnboundedNillable = Occurrence(0, Int.MaxValue, true)
 
   def buildTypeName(tagged: Tagged[Any]): QualifiedName = tagged match {
     case x: TaggedDataRecordSymbol =>
@@ -252,17 +204,15 @@ trait Lookup extends ContextProcessor {
 
   }
 
-  def splitLongSequence(tagged: Tagged[KeyedGroup]): List[Tagged[KeyedGroup]] = List(tagged)
-
   def isForeignType(tagged: Tagged[_]): Boolean = tagged match {
-    case x: TaggedElement    => x.value.ref map { QualifiedName(_).namespace != targetNamespace } getOrElse {false}
+    case x: TaggedLocalElement => x.value.ref map { QualifiedName(_).namespace != targetNamespace } getOrElse {false}
     case x: TaggedKeyedGroup if x.value.key == GroupTag =>
       x.value.group.ref map { QualifiedName(_).namespace != targetNamespace } getOrElse {false}
     case _ => false
   }
 
   def isOptionDescendant(tagged: Tagged[_]): Boolean = tagged match {
-    case x: TaggedElement =>
+    case x: TaggedLocalElement =>
       x.typeStructure match {
         case decl: TaggedComplexType => true
         case _ => false
@@ -273,10 +223,6 @@ trait Lookup extends ContextProcessor {
     case x: TaggedKeyedGroup if x.value.key == SequenceTag => true
     case _ => false
   }
-
-  def max(lhs: String, rhs: String): String =
-    if (lhs == "unbounded" || rhs == "unbounded") "unbounded"
-    else math.max(lhs.toInt, rhs.toInt).toString
 
   def packageName(namespace: Option[URI]): String =
     namespace map { ns =>

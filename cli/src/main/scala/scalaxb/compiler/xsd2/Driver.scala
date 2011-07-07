@@ -67,12 +67,13 @@ class Driver extends Module { driver =>
   def packageName(namespace: Option[String], context: Context): Option[String] =
     new PackageNamer {}.packageName(namespace, context)
 
-  def processSchema(schema: Schema, cntxt: Context, cnfg: Config) =
-    (new ContextProcessor() {
+  def processSchema(s: Schema, cntxt: Context, cnfg: Config) =
+    (new ContextProcessor() with Namer with Lookup with Splitter {
       val logger = driver
       val config = cnfg
       val context = cntxt
-    }).processSchema(schema)
+      val schema = s
+    }).processSchema(s)
 
   def processContext(context: Context, config: Config) {
     context.packageNames ++= config.packageNames

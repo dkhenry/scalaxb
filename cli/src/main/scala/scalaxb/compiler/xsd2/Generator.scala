@@ -28,7 +28,8 @@ import xmlschema._
 import Defs._
 
 class Generator(val schema: ReferenceSchema, val logger: Logger,
-                val context: SchemaContext, val config: Config) extends Params with PackageNamer {
+                val context: SchemaContext, val config: Config) extends Params with PackageNamer
+    with Namer with Lookup with Splitter {
   def generateEntitySource: Snippet =
     Snippet(
       headerSnippet ::
@@ -43,7 +44,7 @@ class Generator(val schema: ReferenceSchema, val logger: Logger,
 
   def generateComplexTypeEntity(name: QualifiedName, decl: Tagged[XComplexType]) = {
     val localName = name.localPart
-    val list = decl.particles
+    val list = splitIfLong(decl.particles)(decl.tag)
     val paramList = Param.fromList(list)
     val primarySequence = decl.primarySequence
     val compositors = decl collect {
@@ -61,7 +62,7 @@ class Generator(val schema: ReferenceSchema, val logger: Logger,
 //      val superNames: List[String] = buildOptions(compositor)
 //      val superString = if (superNames.isEmpty) ""
 //        else " extends " + superNames.mkString(" with ")
-    val list = decl.particles
+    val list = splitIfLong(decl.particles)
     val paramList = Param.fromList(list)
     Snippet(<source>case class { name }({
       paramList.map(_.toScalaCode).mkString(", " + NL + indent(1))})</source>)
