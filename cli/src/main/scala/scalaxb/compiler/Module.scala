@@ -59,13 +59,6 @@ case class Snippet(definition: Seq[Node],
   defaultFormats: Seq[Node],
   implicitValue: Seq[Node])
 
-object Snippet {
-  def apply(snippets: Snippet*): Snippet =
-    Snippet((new scala.xml.NodeBuffer /: snippets) ((b, s) => { b &+ s.definition }),
-      (new scala.xml.NodeBuffer /: snippets) ((b, s) => { b &+ s.companion }),
-      (new scala.xml.NodeBuffer /: snippets) ((b, s) => { b &+ s.implicitValue }) )
-}
-
 trait CanBeWriter[A] {
  def toWriter(value: A): PrintWriter
  def newInstance(packageName: Option[String], fileName: String): A
