@@ -293,6 +293,9 @@ class ComplexTypeOps(val decl: Tagged[XComplexType]) extends immutable.LinearSeq
 
   def primarySequence: Option[Tagged[KeyedGroup]] =
     ComplexTypeOps.primarySequence(decl)
+
+  def compositors(implicit lookup: Lookup, targetNamespace: Option[URI], scope: NamespaceBinding) =
+    ComplexTypeOps.complexTypeToCompositors(decl)
 }
 
 object ComplexTypeOps {
@@ -448,6 +451,14 @@ object ComplexTypeOps {
       case XComplexTypeModelSequence1(arg1, arg2)                                    => extract(arg1)
     }
   }
+
+  def complexTypeToCompositors(decl: Tagged[XComplexType])
+                      (implicit lookup: Lookup,
+                       targetNamespace: Option[URI], scope: NamespaceBinding): List[Tagged[KeyedGroup]] =
+    primarySequence(decl).toList ++
+    decl.particles collect {
+      case Compositor(compositor) => compositor
+    }
 }
 
 object Compositor {

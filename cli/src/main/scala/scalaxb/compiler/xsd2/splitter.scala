@@ -1,15 +1,21 @@
 package scalaxb.compiler.xsd2
 
 import xmlschema._
+import Defs._
 
 trait Splitter { self: ContextProcessor with Lookup =>
-  def splitIfLongSequence(tagged: Tagged[KeyedGroup])(implicit tag: HostTag): List[Tagged[KeyedGroup]] =
+  def splitIfLongSequence(tagged: Tagged[KeyedGroup]): List[Tagged[KeyedGroup]] =
     splitLongSequence(tagged) getOrElse {List(tagged)}
 
-  def splitLongSequence(tagged: Tagged[KeyedGroup])(implicit tag: HostTag): Option[List[Tagged[KeyedGroup]]] =
-    splitParticles(tagged.particles)
+  def splitLongSequence(tagged: Tagged[KeyedGroup]): Option[List[Tagged[KeyedGroup]]] =
+    tagged.key match {
+      case SequenceTag =>
+        implicit val tag = tagged.tag
+        splitParticles(tagged.particles)
+      case _ => None
+    }
 
-  def splitIfLong(particles: List[Tagged[_]])(implicit tag: HostTag): List[Tagged[_]] =
+  def splitParticlesIfLong(particles: List[Tagged[_]])(implicit tag: HostTag): List[Tagged[_]] =
     splitParticles(particles) getOrElse {particles}
 
   def splitParticles(particles: List[Tagged[_]])(implicit tag: HostTag): Option[List[TaggedKeyedGroup]] = {

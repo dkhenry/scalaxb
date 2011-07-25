@@ -44,13 +44,11 @@ class Generator(val schema: ReferenceSchema, val logger: Logger,
 
   def generateComplexTypeEntity(name: QualifiedName, decl: Tagged[XComplexType]) = {
     val localName = name.localPart
-    val list = splitIfLong(decl.particles)(decl.tag)
+    val list = splitParticlesIfLong(decl.particles)(decl.tag)
     val paramList = Param.fromList(list)
-    val primarySequence = decl.primarySequence
-    val compositors = decl collect {
-      case Compositor(compositor) if Some(compositor) != primarySequence => compositor
-    }
-    val compositorCodes = compositors.toList map { generateCompositor }
+    val pseq = decl.primarySequence
+    val compositors =  decl.compositors flatMap {splitIfLongSequence} filter {Some(_) != pseq}
+    val compositorCodes = compositors.toList map {generateCompositor}
 
     Snippet(Snippet(<source>case class { localName }({
       paramList.map(_.toScalaCode).mkString(", " + NL + indent(1))})</source>) :: compositorCodes: _*)
@@ -62,7 +60,7 @@ class Generator(val schema: ReferenceSchema, val logger: Logger,
 //      val superNames: List[String] = buildOptions(compositor)
 //      val superString = if (superNames.isEmpty) ""
 //        else " extends " + superNames.mkString(" with ")
-    val list = splitIfLong(decl.particles)
+    val list = splitParticlesIfLong(decl.particles)
     val paramList = Param.fromList(list)
     Snippet(<source>case class { name }({
       paramList.map(_.toScalaCode).mkString(", " + NL + indent(1))})</source>)
